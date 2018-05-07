@@ -28,6 +28,7 @@ public class Client extends Participant implements Serializable  {
 	private  Voyage voyage;
 	
 	@ManyToOne
+	@JoinColumn(name = "co_id", referencedColumnName = "id_co")
 	private Conseiller conseiller;
 	
 	@OneToMany(mappedBy="client")
