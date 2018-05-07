@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
@@ -14,6 +16,7 @@ import javax.persistence.Table;
 @Table(name = "voitures")
 public class Voiture implements Serializable {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_vo")
 	private int id;
 	private String catégorie;
