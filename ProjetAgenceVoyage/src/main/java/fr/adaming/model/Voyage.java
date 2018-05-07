@@ -55,7 +55,7 @@ public class Voyage implements Serializable {
 	private List<Image> listeImages;
 	
 	@OneToMany(mappedBy="voyage")
-	private Client client;
+	private List<Client> client;
 	
 	
 	//constructeurs :
