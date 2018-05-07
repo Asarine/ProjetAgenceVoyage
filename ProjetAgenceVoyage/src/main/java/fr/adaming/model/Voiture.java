@@ -18,7 +18,7 @@ public class Voiture implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_vo")
-	private int id;
+	private Long id;
 	private String catégorie;
 	private String loueur;
 	@Lob

@@ -18,7 +18,7 @@ public class Destination implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_d")
-	private int id;
+	private Long id;
 	private String continent;
 	private String pays;
 
