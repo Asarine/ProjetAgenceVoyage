@@ -47,7 +47,7 @@ public class Voiture implements Serializable {
 		this.photo = photo;
 	}
 
-	public Voiture(int id, String catégorie, String loueur, byte[] photo) {
+	public Voiture(Long id, String catégorie, String loueur, byte[] photo) {
 		super();
 		this.id = id;
 		this.catégorie = catégorie;
@@ -55,11 +55,11 @@ public class Voiture implements Serializable {
 		this.photo = photo;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

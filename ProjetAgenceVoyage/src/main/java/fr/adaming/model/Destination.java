@@ -45,18 +45,18 @@ public class Destination implements Serializable {
 		this.pays = pays;
 	}
 
-	public Destination(int id, String continent, String pays) {
+	public Destination(Long id, String continent, String pays) {
 		super();
 		this.id = id;
 		this.continent = continent;
 		this.pays = pays;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
