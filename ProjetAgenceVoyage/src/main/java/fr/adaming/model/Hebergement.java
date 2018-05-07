@@ -1,12 +1,14 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +26,13 @@ public class Hebergement implements Serializable {
 	private boolean pdj;
 	private boolean dj;
 	private boolean diner;
+
+	// Transformation association
+
+	@OneToMany(mappedBy = "hebergement")
+	List<Voyage> listevoyage;
+	@OneToMany(mappedBy = "hebergement")
+	List<Image> listeimage;
 
 	// Constructeurs
 
@@ -43,6 +52,22 @@ public class Hebergement implements Serializable {
 
 	public long getId_h() {
 		return id_h;
+	}
+
+	public List<Voyage> getListevoyage() {
+		return listevoyage;
+	}
+
+	public void setListevoyage(List<Voyage> listevoyage) {
+		this.listevoyage = listevoyage;
+	}
+
+	public List<Image> getListeimage() {
+		return listeimage;
+	}
+
+	public void setListeimage(List<Image> listeimage) {
+		this.listeimage = listeimage;
 	}
 
 	public void setId_h(long id_h) {
