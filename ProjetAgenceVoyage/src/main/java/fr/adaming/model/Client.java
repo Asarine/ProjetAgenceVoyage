@@ -1,23 +1,37 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
 @Table(name="clients")
-@DiscriminatorValue(value="cl")
-public class Client extends Participant implements Serializable  {
+public class Client implements Serializable  {
 	
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_cl")
+	private long id;
+	private String prenom;
+	private String nom;
+	private String civilite;
+	private String tel;
+	@Temporal(TemporalType.DATE)
+	private Date dn;
+	private String mail;
 	private String statutdossier;
 	private long numcb;
 	private String mdp;
@@ -33,56 +47,154 @@ public class Client extends Participant implements Serializable  {
 	
 	@OneToMany(mappedBy="client")
 	private List<Service> listeService;
-	//Constructeur
+
 	
-	public Conseiller getConseiller() {
-		return conseiller;
-	}
 
-
-	public void setConseiller(Conseiller conseiller) {
-		this.conseiller = conseiller;
-	}
-
-
-	public List<Service> getListeService() {
-		return listeService;
-	}
-
-
-	public void setListeService(List<Service> listeService) {
-		this.listeService = listeService;
-	}
-
-
-	public Voyage getVoyage() {
-		return voyage;
-	}
-
-
-	public void setVoyage(Voyage voyage) {
-		this.voyage = voyage;
-	}
-
-
-	public Client(String statutdossier, long numcb, String mdp) {
+	public Client() {
 		super();
+	}
+
+	
+
+
+	public Client(String prenom, String nom, String civilite, String tel, Date dn, String mail, String statutdossier,
+			long numcb, String mdp) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.civilite = civilite;
+		this.tel = tel;
+		this.dn = dn;
+		this.mail = mail;
 		this.statutdossier = statutdossier;
 		this.numcb = numcb;
 		this.mdp = mdp;
 	}
 
 
-	public Client() {
+
+
+	public Client(long id, String prenom, String nom, String civilite, String tel, Date dn, String mail,
+			String statutdossier, long numcb, String mdp) {
 		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.civilite = civilite;
+		this.tel = tel;
+		this.dn = dn;
+		this.mail = mail;
+		this.statutdossier = statutdossier;
+		this.numcb = numcb;
+		this.mdp = mdp;
 	}
 
 
-	//G+S
-	
+
+
+	public long getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+
+
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+
+
+	public String getCivilite() {
+		return civilite;
+	}
+
+
+
+
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
+	}
+
+
+
+
+	public String getTel() {
+		return tel;
+	}
+
+
+
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+
+
+
+	public Date getDn() {
+		return dn;
+	}
+
+
+
+
+	public void setDn(Date dn) {
+		this.dn = dn;
+	}
+
+
+
+
+	public String getMail() {
+		return mail;
+	}
+
+
+
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+
+
+
 	public String getStatutdossier() {
 		return statutdossier;
 	}
+
+
 
 
 	public void setStatutdossier(String statutdossier) {
@@ -90,9 +202,13 @@ public class Client extends Participant implements Serializable  {
 	}
 
 
+
+
 	public long getNumcb() {
 		return numcb;
 	}
+
+
 
 
 	public void setNumcb(long numcb) {
@@ -100,14 +216,62 @@ public class Client extends Participant implements Serializable  {
 	}
 
 
+
+
 	public String getMdp() {
 		return mdp;
 	}
 
 
+
+
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
+
+
+
+
+	public Voyage getVoyage() {
+		return voyage;
+	}
+
+
+
+
+	public void setVoyage(Voyage voyage) {
+		this.voyage = voyage;
+	}
+
+
+
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+
+
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
+
+
+
+	public List<Service> getListeService() {
+		return listeService;
+	}
+
+
+
+
+	public void setListeService(List<Service> listeService) {
+		this.listeService = listeService;
+	}
+
+
 
 
 	@Override

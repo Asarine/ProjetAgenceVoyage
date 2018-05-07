@@ -11,7 +11,7 @@
   <!-- Déclaration des context de application context et spring security : -->
   <context-param>
   <param-name>contextConfigLocation</param-name>
-  <param-value>/WEB-INF/applicationContext.xml /WEB-INF/security-context.xml</param-value>
+  <param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
   
   <!-- Déclaration de la servlet de spring mvc -->
@@ -22,7 +22,7 @@
   <!-- déclaration du context de mvc-context : -->
   <init-param>
   <param-name>contextConfigLocation</param-name>
-<param-value>/WEB-INF/mvc-context.xml</param-value> 
+<param-value>/WEB-INF/mvcContext.xml</param-value> 
   </init-param>
   </servlet>
   
@@ -31,21 +31,6 @@
   <servlet-name>springDispatcherServlet</servlet-name>
   <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  
-  <!-- Déclaration du filtre de sping security : -->
-  <filter>
-  <filter-name>springSecurityFilterChain</filter-name>
-<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>  
-  </filter>
-  
-  
-  <!-- Mapping du filtre de spring security -->
-  <filter-mapping>
-  <filter-name>springSecurityFilterChain</filter-name>
-<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
   
   <!-- Spécification  de la page d'accueil -->
   <welcome-file-list>

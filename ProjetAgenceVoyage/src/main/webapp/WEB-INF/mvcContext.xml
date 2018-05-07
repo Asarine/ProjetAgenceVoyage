@@ -16,5 +16,14 @@
 
 	<!-- Forcer le conteneur web d'intercepter les req -->
 	<mvc:default-servlet-handler />
+	
+	<!-- Déclaration du bean ViewResolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- Injection par modificateurs des propriétés de ViewResolver pour qu'il 
+			puisse trouver les pages recherchées -->
+		<property name="prefix" value="/WEB-INF/vues/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 
 </beans>

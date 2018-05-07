@@ -17,8 +17,6 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="participants")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="statut")
 public class Participant implements Serializable{
 	
 	@Id
