@@ -20,10 +20,10 @@ public class Service implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "co_id", referencedColumnName = "id_co")
 	private Conseiller conseiller;
-//	
-//	@ManyToOne
-//	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
-//	private Client client;
+	
+	@ManyToOne
+	@JoinColumn(name = "cl_id", referencedColumnName = "id_p")
+	private Client client;
 	
 
 	public Conseiller getConseiller() {
@@ -34,13 +34,13 @@ public class Service implements Serializable {
 		this.conseiller = conseiller;
 	}
 
-//	public Client getClient() {
-//		return client;
-//	}
-//
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
 	public Service() {
 		super();
