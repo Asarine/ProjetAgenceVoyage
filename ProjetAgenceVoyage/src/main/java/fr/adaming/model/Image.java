@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,11 +26,26 @@ public class Image implements Serializable {
 	
 	//transformation uml en java :
 	
+	//avec hebergement :
+	 @ManyToOne
+	 @JoinColumn(name="h_id",referencedColumnName="id_h")
+	private Hebergement hebergement;
+	
+	
 	  //avec voiture :
+	 @ManyToOne
+	 @JoinColumn(name="vo_id", referencedColumnName="id_vo")
+	 private Voiture voiture;
 	
 	 //avec voyage :
+	 @ManyToOne
+	 @JoinColumn(name="v_id", referencedColumnName="id_v")
+	 private Voyage voyage;
 	
 	//avec destination :
+	 @ManyToOne
+	 @JoinColumn(name="d_id",referencedColumnName="id_d")
+	 private Destination destination;
 	
 	
 	//constructeurs :
