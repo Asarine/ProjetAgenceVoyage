@@ -23,17 +23,17 @@ public class Voiture implements Serializable {
 	private String loueur;
 	@Lob
 	private byte[] photo;
-//	
-//	@OneToOne
-//	private Formule formule;
-//
-//	public Formule getFormule() {
-//		return formule;
-//	}
-//
-//	public void setFormule(Formule formule) {
-//		this.formule = formule;
-//	}
+	
+	@OneToOne
+	private Formule formule;
+
+	public Formule getFormule() {
+		return formule;
+	}
+
+	public void setFormule(Formule formule) {
+		this.formule = formule;
+	}
 
 	public Voiture() {
 		super();
