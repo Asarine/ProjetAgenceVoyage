@@ -5,7 +5,8 @@ import java.io.Serializable;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,8 +20,24 @@ public class Client extends Participant implements Serializable  {
 	private long numcb;
 	private String mdp;
 	
+	//transformation UML en Java
+	@ManyToOne
+	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
+	private  Voyage voyage;
+	
+	
 	//Constructeur
 	
+	public Voyage getVoyage() {
+		return voyage;
+	}
+
+
+	public void setVoyage(Voyage voyage) {
+		this.voyage = voyage;
+	}
+
+
 	public Client(String statutdossier, long numcb, String mdp) {
 		super();
 		this.statutdossier = statutdossier;
