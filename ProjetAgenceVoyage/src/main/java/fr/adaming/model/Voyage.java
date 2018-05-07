@@ -2,13 +2,19 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="voyages")
@@ -18,7 +24,9 @@ public class Voyage implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id_v;
+	@Temporal(TemporalType.DATE)
 	private Date dateD;
+	@Temporal(TemporalType.DATE)
 	private Date dateR;
 	private int nbPlaces;
 	private int tarif;
@@ -29,10 +37,25 @@ public class Voyage implements Serializable {
 	//transformation des associations uml en java :
 	
 	  //avec hebergement :
+	@ManyToOne
+	@JoinColumn(name="h_id", referencedColumnName="id_h")
+	private Hebergement hebergement;
 	
 	  //avec destination :
+	@ManyToOne
+	@JoinColumn(name="d_id", referencedColumnName="id_d")
+	private Destination destination;
 	  
 	 //avec formule :
+	@ManyToOne
+	@JoinColumn(name="f_id", referencedColumnName="id_f")
+	private Formule formule;
+	
+	@OneToMany(mappedBy="voyage")
+	private List<Image> listeImages;
+	
+	@OneToMany(mappedBy="voyage")
+	private Client client;
 	
 	
 	//constructeurs :
