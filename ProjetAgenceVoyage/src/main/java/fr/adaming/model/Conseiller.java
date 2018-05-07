@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-@Entity
-public class Conseillers {
+@Entity(name="conseillers")
+public class Conseiller {
 	
 	// Attributs
 	@Id
@@ -26,11 +26,11 @@ public class Conseillers {
 	// Transformation de l'association UML en Java
 
 	// Constructeurs
-	public Conseillers() {
+	public Conseiller() {
 		super();
 	}
 
-	public Conseillers(String nom, String prenom, String mail, String mdp, boolean active) {
+	public Conseiller(String nom, String prenom, String mail, String mdp, boolean active) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -39,7 +39,7 @@ public class Conseillers {
 		this.active = active;
 	}
 
-	public Conseillers(int id_co, String nom, String prenom, String mail, String mdp, boolean active) {
+	public Conseiller(int id_co, String nom, String prenom, String mail, String mdp, boolean active) {
 		super();
 		this.id_co = id_co;
 		this.nom = nom;

@@ -31,7 +31,29 @@
 		<property name="password" value="${jdbc.mdp}" />
 	</bean>
 
-	
+	<!-- DECLARATION DU BEAN SESSIONFACTORY -->
+
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- injection par modificateur d'un datasource -->
+
+		<property name="dataSource" ref="dsBean" />
+
+		
+
+
+	</bean>
+
+	<bean id="transactionManagerBean"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+
+		<property name="sessionFactory" ref="sessionFactoryBean" />
+
+
+	</bean>
+	<!-- activer la detection des annotations des transactions -->
+
+	<tx:annotation-driven transaction-manager="transactionManagerBean" />
+</beans>
 	
 		
-</beans>
