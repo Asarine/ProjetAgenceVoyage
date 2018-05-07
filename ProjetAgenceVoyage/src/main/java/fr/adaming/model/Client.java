@@ -1,12 +1,14 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
-
+import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -25,9 +27,33 @@ public class Client extends Participant implements Serializable  {
 	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
 	private  Voyage voyage;
 	
+	@ManyToOne
+	private Conseiller conseiller;
 	
+	@OneToMany(mappedBy="client")
+	private List<Service> listeService;
 	//Constructeur
 	
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
+
+	public List<Service> getListeService() {
+		return listeService;
+	}
+
+
+	public void setListeService(List<Service> listeService) {
+		this.listeService = listeService;
+	}
+
+
 	public Voyage getVoyage() {
 		return voyage;
 	}
