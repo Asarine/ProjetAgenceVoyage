@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class Service implements Serializable {
 	@Id
@@ -13,6 +15,32 @@ public class Service implements Serializable {
 	@Column(name = "id_s")
 	private Long id;
 	private String questionnaire;
+
+	// Transformation association UML en Java
+	@ManyToOne
+	@JoinColumn(name = "co_id", referencedColumnName = "id_co")
+	private Conseiller conseiller;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
+//	private Client client;
+	
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
+//	public Client getClient() {
+//		return client;
+//	}
+//
+//	public void setClient(Client client) {
+//		this.client = client;
+//	}
 
 	public Service() {
 		super();
@@ -50,6 +78,5 @@ public class Service implements Serializable {
 	public String toString() {
 		return "Service [id=" + id + ", questionnaire=" + questionnaire + "]";
 	}
-	
-	
+
 }

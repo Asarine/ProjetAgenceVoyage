@@ -2,15 +2,19 @@ package fr.adaming.model;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
-@Entity(name="conseillers")
+@Entity
+@Table(name="conseillers")
 public class Conseiller implements Serializable {
 	
 	// Attributs
@@ -26,6 +30,16 @@ public class Conseiller implements Serializable {
 	private boolean active;
 	
 	// Transformation de l'association UML en Java
+	@OneToMany(mappedBy = "conseiller")
+	private List<Service> listeService;
+	
+	public List<Service> getListeService() {
+		return listeService;
+	}
+
+	public void setListeService(List<Service> listeService) {
+		this.listeService = listeService;
+	}
 
 	// Constructeurs
 	public Conseiller() {
