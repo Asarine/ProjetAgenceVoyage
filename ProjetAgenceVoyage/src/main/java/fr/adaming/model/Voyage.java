@@ -58,7 +58,7 @@ public class Voyage implements Serializable {
 	private List<Client> client;
 	
 	
-	//constructeurs :
+	//les constructeurs :
 
 	public Voyage() {
 		super();
