@@ -1,6 +1,8 @@
 package fr.adaming.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,12 +11,12 @@ import javax.persistence.Id;
 
 
 @Entity(name="conseillers")
-public class Conseiller {
+public class Conseiller implements Serializable {
 	
 	// Attributs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id_co;
+	private long id_co;
 	private String nom;
 	private String prenom;
 	private String mail;
@@ -50,11 +52,11 @@ public class Conseiller {
 	}
 
 	// Getters et setters
-	public int getId_co() {
+	public long getId_co() {
 		return id_co;
 	}
 
-	public void setId_co(int id_co) {
+	public void setId_co(long id_co) {
 		this.id_co = id_co;
 	}
 
