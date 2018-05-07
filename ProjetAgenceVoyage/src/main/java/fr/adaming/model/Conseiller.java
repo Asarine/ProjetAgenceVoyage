@@ -33,13 +33,8 @@ public class Conseiller implements Serializable {
 	@OneToMany(mappedBy = "conseiller")
 	private List<Service> listeService;
 	
-	public List<Service> getListeService() {
-		return listeService;
-	}
-
-	public void setListeService(List<Service> listeService) {
-		this.listeService = listeService;
-	}
+	@OneToMany(mappedBy = "conseiller")
+	private List<Role> listeRole;
 
 	// Constructeurs
 	public Conseiller() {
@@ -114,7 +109,23 @@ public class Conseiller implements Serializable {
 		this.active = active;
 	}
 
+	public List<Service> getListeService() {
+		return listeService;
+	}
+
+	public void setListeService(List<Service> listeService) {
+		this.listeService = listeService;
+	}
 	
+	
+	public List<Role> getListeRole() {
+		return listeRole;
+	}
+
+	public void setListeRole(List<Role> listeRole) {
+		this.listeRole = listeRole;
+	}
+
 	@Override
 	public String toString() {
 		return "Conseillers [id_co=" + id_co + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp
