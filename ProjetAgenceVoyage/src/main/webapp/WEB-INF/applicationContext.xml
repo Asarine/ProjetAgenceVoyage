@@ -31,35 +31,7 @@
 		<property name="password" value="${jdbc.mdp}" />
 	</bean>
 
-	<!-- Déclaration du bean SessionFactory -->
-	<bean id="sessionFactoryBean"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<!-- Injection explicite d'un collaborateur par modificateur, injection 
-			par modificateur d'un datasource -->
-		<property name="dataSource" ref="dataSourceBean" />
-		<!-- Spécifier les classes annotées par les annotations jpa (le mapping 
-			objet relationnel) -->
-		<property name="packagesToScan" value="fr.adaming.model" />
-
-		<!-- Ajouter les propriétés de Hibernate -->
-
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">${hb.dialect}</prop>
-				<prop key="hibernate.hbm2ddl.auto">${hb.hbm2ddl}</prop>
-				<prop key="hibernate.show_sql">${hb.sql}</prop>
-			</props>
-		</property>
-	</bean>
-
-	<!-- Déclaration du bean Transaction Manager -->
-	<bean id="transactionManagerBean"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<!-- injection par modificateur de la session factory -->
-		<property name="sessionFactory" ref="sessionFactoryBean" />
-	</bean>
-
-	<!-- Activer les annotations des transactions : @ Transactionnal -->
-	<tx:annotation-driven transaction-manager="transactionManagerBean" />
 	
+	
+		
 </beans>
