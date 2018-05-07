@@ -71,8 +71,59 @@ public class Image implements Serializable {
 
 
 	//getters et setters :
+	
+	
+	
 	public long getId_im() {
 		return id_im;
+	}
+
+
+
+	public Hebergement getHebergement() {
+		return hebergement;
+	}
+
+
+
+	public void setHebergement(Hebergement hebergement) {
+		this.hebergement = hebergement;
+	}
+
+
+
+	public Voiture getVoiture() {
+		return voiture;
+	}
+
+
+
+	public void setVoiture(Voiture voiture) {
+		this.voiture = voiture;
+	}
+
+
+
+	public Voyage getVoyage() {
+		return voyage;
+	}
+
+
+
+	public void setVoyage(Voyage voyage) {
+		this.voyage = voyage;
+	}
+
+
+
+	public Destination getDestination() {
+		return destination;
+	}
+
+
+
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 

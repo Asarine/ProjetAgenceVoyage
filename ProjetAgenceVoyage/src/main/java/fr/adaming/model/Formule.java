@@ -68,8 +68,34 @@ public class Formule implements Serializable {
 
 
 	//getters et setters :
+	
+	
 	public long getId_f() {
 		return id_f;
+	}
+
+
+
+	public List<Voyage> getListeVoyage() {
+		return listeVoyage;
+	}
+
+
+
+	public void setListeVoyage(List<Voyage> listeVoyage) {
+		this.listeVoyage = listeVoyage;
+	}
+
+
+
+	public Voiture getVoitureLouer() {
+		return voitureLouer;
+	}
+
+
+
+	public void setVoitureLouer(Voiture voitureLouer) {
+		this.voitureLouer = voitureLouer;
 	}
 
 

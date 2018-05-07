@@ -90,6 +90,36 @@ public class Voyage implements Serializable {
 	public long getId_v() {
 		return id_v;
 	}
+	public Hebergement getHebergement() {
+		return hebergement;
+	}
+	public void setHebergement(Hebergement hebergement) {
+		this.hebergement = hebergement;
+	}
+	public Destination getDestination() {
+		return destination;
+	}
+	public void setDestination(Destination destination) {
+		this.destination = destination;
+	}
+	public Formule getFormule() {
+		return formule;
+	}
+	public void setFormule(Formule formule) {
+		this.formule = formule;
+	}
+	public List<Image> getListeImages() {
+		return listeImages;
+	}
+	public void setListeImages(List<Image> listeImages) {
+		this.listeImages = listeImages;
+	}
+	public List<Client> getClient() {
+		return client;
+	}
+	public void setClient(List<Client> client) {
+		this.client = client;
+	}
 	public void setId_v(long id_v) {
 		this.id_v = id_v;
 	}
