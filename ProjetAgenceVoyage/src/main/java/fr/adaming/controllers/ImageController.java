@@ -1,54 +1,56 @@
-package fr.adaming.controllers;
 
+
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
+import java.io.FileOutputStream;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
-
-import fr.adaming.model.Fichiers;
-import fr.adaming.model.Image;
-import fr.adaming.service.IImageService;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/image")
+@RequestMapping("/imgCTRL")
 @Scope("session")
 public class ImageController {
+	private static final String UPLOAD_DIRECTORY ="/images";
+	private static final int THRESHOLD_SIZE     = 1024 * 1024 * 3;  // 3MB
 	
-	@Autowired
-	private IImageService imgServ;
-	
-	@RequestMapping(value = "/ajoutImg", method = RequestMethod.GET)
-	public String afficherForm(Model modele){
-		modele.addAttribute("groupeFichier", new Fichiers());
-		return "ajoutImage";
+	@RequestMapping("/uploadform")
+	public ModelAndView uploadForm(){
+		return new ModelAndView("uploadform");	
 	}
 	
-	@RequestMapping(value = "/ajoutImgBD", method = RequestMethod.POST)
-	public String ajouterImages(@ModelAttribute("groupeFichier") Fichiers fs){
-		 List<MultipartFile> files = fs.getImages();
-		 
-		 for (MultipartFile fi : files){
-			 try {
-				Image img=new Image(fi.getBytes());
-				imgServ.addImage(img);
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-				return "accueilConseiller";
-			}
+	@RequestMapping(value="/savefile",method=RequestMethod.POST)
+	public ModelAndView saveimage( @RequestParam CommonsMultipartFile file,HttpSession session) throws Exception
+	{
+	DiskFileItemFactory factory = new DiskFileItemFactory();
+	factory.setSizeThreshold(THRESHOLD_SIZE);
+	factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+	 
+	ServletFileUpload upload = new ServletFileUpload(factory);
+	ServletContext context = session.getServletContext();
 
-		 }
-		 return "accueilConseiller";
+	String uploadPath = context.getRealPath(UPLOAD_DIRECTORY);
+	System.out.println(uploadPath);	    
+
+	byte[] bytes = file.getBytes();
+	BufferedOutputStream stream =new BufferedOutputStream(new FileOutputStream(new File(uploadPath + File.separator + file.getOriginalFilename())));
+	stream.write(bytes);
+	stream.flush();
+	stream.close();
+	     
+	return new ModelAndView("uploadform","filesuccess","File successfully saved!");
 	}
-
 }

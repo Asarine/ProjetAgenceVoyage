@@ -34,7 +34,7 @@
   
   <!-- Spécification  de la page d'accueil -->
   <welcome-file-list>
-  <welcome-file>index.jsp</welcome-file>
+  <welcome-file>indexW.jsp</welcome-file>
   </welcome-file-list>
   
   

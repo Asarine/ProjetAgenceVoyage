@@ -8,5 +8,7 @@
 </head>
 <body>
 	<% response.sendRedirect("dsCTRL/listeDest"); %>
+	
+	    <a href="uploadform">Upload Image</a>  
 </body>
 </html>
