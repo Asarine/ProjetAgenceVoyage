@@ -25,23 +25,23 @@
 
 	<form:form cssClass="form-horizontal" action="soumettreAjout"
 		method="POST" modelAttribute="pAjout">
-		
+
 		<div class="form-group">
 			<form:label path="civilite" cssClass="col-sm-2 control-label">Civilité</form:label>
 			<div class="col-sm-4">
-				<form:input path="civilite" cssClass="form-control"
-					placeholder="M/Mme" />
+				<form:select class="form-control" path="civilite">
+					<option value="M.">M.</option>
+					<option value="Mme">Mme</option>
+				</form:select>
 			</div>
 			<form:errors path="civilite" cssStyle="color:red" />
 		</div>
 		<br />
 
-
 		<div class="form-group">
 			<form:label path="nom" cssClass="col-sm-2 control-label">Nom</form:label>
 			<div class="col-sm-4">
-				<form:input path="nom" cssClass="form-control"
-					placeholder="Nom" />
+				<form:input path="nom" cssClass="form-control" placeholder="Nom" />
 			</div>
 			<form:errors path="nom" cssStyle="color:red" />
 		</div>
@@ -81,8 +81,7 @@
 		<div class="form-group">
 			<form:label path="mail" cssClass="col-sm-2 control-label">Mail</form:label>
 			<div class="col-sm-4">
-				<form:input path="mail" cssClass="form-control"
-					placeholder="Mail" />
+				<form:input path="mail" cssClass="form-control" placeholder="Mail" />
 			</div>
 			<form:errors path="mail" cssStyle="color:red" />
 		</div>
