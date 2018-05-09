@@ -23,8 +23,15 @@ public class VoitureControleur {
 
 	@Autowired
 	private IVoitureService voitureService;
+	
+	//setter pour l'injection de dependance
+	public void setVoitureService(IVoitureService voitureService) {
+		this.voitureService = voitureService;
+	}
+	
 
 	// --------------------------Fonctionnalité afficher------------------------
+
 
 	@RequestMapping(value = "/listeVoitures", method = RequestMethod.GET)
 	public ModelAndView afficherListeVoiture() {
@@ -64,7 +71,7 @@ public class VoitureControleur {
 		return "accueilVoiture";
 	}
 
-	// --------------------------Fonctionnalité modifier-----------------------
+	// --------------------------Fonctionnalité modifier-------------------------
 	@RequestMapping(value = "/updateVoit", method = RequestMethod.GET)
 	public String afficherVoitureModif(Model modele, @RequestParam("pId") long id) {
 		modele.addAttribute("voitureModifiee", voitureService.getById(id));
@@ -81,6 +88,7 @@ public class VoitureControleur {
 	@RequestMapping(value = "/modifVoiture", method = RequestMethod.POST)
 	public String modifierVoiture(Model modele, @ModelAttribute("voitureModifiee") Voiture voit) {
 		// Appel de la méthode service
+		System.out.println(voit);
 		Voiture vOut = voitureService.updateVoiture(voit);
 		return "redirect:listeVoitures";
 

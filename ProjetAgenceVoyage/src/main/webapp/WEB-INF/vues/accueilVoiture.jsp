@@ -32,7 +32,7 @@
 					<td>${v.id}</td>
 					<td>${v.categorie}</td>
 					<td>${v.loueur}</td>
-					<td><a href="<c:url value='/voiture/deleteVoit/${v.id}'/>">Supprimer</a> || <a href="<c:url value='/voiture/updateVoit/?pId=${v.id}'/>">Modifier</a></td>
+					<td><a href="<c:url value='/voiture/deleteVoit/${v.id}'/>">Supprimer</a> || <a href="<c:url value='/voiture/updateVoit?pId=${v.id}'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 			
