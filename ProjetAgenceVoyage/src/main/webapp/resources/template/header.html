@@ -16,10 +16,14 @@
 </nav>
 
 
-<nav class="navbar navbar-default navbar-static-top">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
  
+ Dropdown
+    <span class="caret"></span>
+  </button>
 <!-- navs -->
-<ul class="nav nav-pills">
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
   <li role="presentation" ><a href="<c:url value='/conseiller/vCTRL/listeVoyage'/>">Accueil </a></li>        <!-- il faut appeler dans href l'url des methodes des Controllers et non la page -->
   <li role="presentation"><a href="<c:url value='/conseiller/vCTRL/afficheAjoutVoyage'/>">Ajouter </a></li>
   <li role="presentation"><a href="<c:url value='/conseiller/vCTRL/afficheModifVoyage'/>">Modifier </a></li>
@@ -31,7 +35,7 @@
   <li  role="presentation"> <a href="">Se déconnecter</a></li>
 </ul>
  
-</nav>
+</div>
 
 
 <nav class="navbar navbar-default navbar-static-top">

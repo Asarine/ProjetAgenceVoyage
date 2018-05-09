@@ -1,34 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
   <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 
+
+
+
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/listeVoyageApres'/>">Acceder au menu de la gestion des voyages </a></button>
-  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/pCTRL/liste'/>">Acceder a la gestion des participants </a></button>
-  <button type="button" class="btn btn-default"><a href="#">Acceder a la gestion des clients</a></button>
-   
+  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheAjoutVoyage'/>">ajouter un nouveau voyage </a></button>
+  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheModifVoyage'/>">modifier les modalites d'un voyage </a></button>
+  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheRechVoyage'/>">rechercher un voyage a la liste</a></button>
+    <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheSupprVoyage'/>">supprimer un voyage de la liste</a></button>
+    
+  
 </div>
 
 <div class="btn-group pull-right" role="group" aria-label="..." style="text-align: right">
 
- <a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a>
-	<a href="<c:url value='/voiture/listeVoitures'/>">Afficher les
-		voitures</a>
+    <button type="button" class="btn btn-default" style="text-align: right;"><a href="<c:url value='/conseiller/fCTRL/listeFormule'/>">Accéder à la gestion des formules</a></button>
+        <button type="button" class="btn btn-default" style="text-align: right;"><a href="<c:url value='/conseiller/fCTRL/listeDest'/>">Accéder à la gestion des destinations</a></button>
+                <button type="button" class="btn btn-default" style="text-align: right;"><a href="#">Accéder à la gestion des hebergements</a></button>
+        
+    
 </div>
+
+
 
 <br/>
 <hr />
@@ -73,36 +81,6 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
-	
-	
-	
-	
-	<br/>
-		<br/>
-		<br/>
-		<br/>
-	
-<div class="typeform-widget"
-		data-url="https://tudiantsddame.typeform.com/report/uOGCHO/N2RtFJ10mr5MwD86"
-		style="width: 100%; height: 650px;"></div>
-	<script>
-		(function() {
-			var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm", b = "https://embed.typeform.com/";
-			if (!gi.call(d, id)) {
-				js = ce.call(d, "script");
-				js.id = id;
-				js.src = b + "embed.js";
-				q = gt.call(d, "script")[0];
-				q.parentNode.insertBefore(js, q)
-			}
-		})()
-	</script>
-	<div
-		style="font-family: Sans-Serif; font-size: 12px; color: #999; opacity: 0.5; padding-top: 5px;">
-		powered by <a
-			href="https://admin.typeform.com/signup?utm_campaign=uOGCHO&utm_source=typeform.com-5279313-Basic&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN"
-			style="color: #999" target="_blank">Typeform</a>
 	</div>
 
 </body>
