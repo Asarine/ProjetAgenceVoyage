@@ -32,7 +32,6 @@ public class Client implements Serializable  {
 	@Temporal(TemporalType.DATE)
 	private Date dn;
 	private String mail;
-	private String statutdossier;
 	private long numcb;
 	private String mdp;
 	
@@ -54,10 +53,8 @@ public class Client implements Serializable  {
 		super();
 	}
 
-	
 
-
-	public Client(String prenom, String nom, String civilite, String tel, Date dn, String mail, String statutdossier,
+	public Client(String prenom, String nom, String civilite, String tel, Date dn, String mail,
 			long numcb, String mdp) {
 		super();
 		this.prenom = prenom;
@@ -66,7 +63,6 @@ public class Client implements Serializable  {
 		this.tel = tel;
 		this.dn = dn;
 		this.mail = mail;
-		this.statutdossier = statutdossier;
 		this.numcb = numcb;
 		this.mdp = mdp;
 	}
@@ -75,7 +71,7 @@ public class Client implements Serializable  {
 
 
 	public Client(long id, String prenom, String nom, String civilite, String tel, Date dn, String mail,
-			String statutdossier, long numcb, String mdp) {
+			long numcb, String mdp) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
@@ -84,7 +80,6 @@ public class Client implements Serializable  {
 		this.tel = tel;
 		this.dn = dn;
 		this.mail = mail;
-		this.statutdossier = statutdossier;
 		this.numcb = numcb;
 		this.mdp = mdp;
 	}
@@ -189,21 +184,6 @@ public class Client implements Serializable  {
 
 
 
-
-	public String getStatutdossier() {
-		return statutdossier;
-	}
-
-
-
-
-	public void setStatutdossier(String statutdossier) {
-		this.statutdossier = statutdossier;
-	}
-
-
-
-
 	public long getNumcb() {
 		return numcb;
 	}
@@ -276,12 +256,9 @@ public class Client implements Serializable  {
 
 	@Override
 	public String toString() {
-		return "Client [statutdossier=" + statutdossier + ", numcb=" + numcb + ", mdp=" + mdp + "]";
+		return "Client [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", civilite=" + civilite + ", tel=" + tel
+				+ ", dn=" + dn + ", mail=" + mail + ", numcb=" + numcb + ", mdp=" + mdp + "]";
 	}
-
-
-	
-	
 	
 	
 
