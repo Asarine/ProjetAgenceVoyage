@@ -58,6 +58,17 @@ public class VoyageController {
 	}
 	
 	
+	//fonctionnalité récupérer la liste affichage apres accueil conseiller :
+		@RequestMapping(value="/listeVoyageApres", method=RequestMethod.GET)
+		public ModelAndView afficheListVoyageApres()
+		{
+			
+			//appel de la methode service :
+			List<Voyage> liste=voyService.getAllVoyage();
+			
+			return new ModelAndView("listeVoyage","listeVoy", liste );
+		}
+	
 	
 	//fonctionnalité rechchercher par l'id :
 	   //methode pour afficher le formulaire de recherche :
