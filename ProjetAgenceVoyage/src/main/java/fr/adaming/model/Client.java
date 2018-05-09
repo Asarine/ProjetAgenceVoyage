@@ -46,6 +46,10 @@ public class Client implements Serializable  {
 	
 	@OneToMany(mappedBy="client")
 	private List<Service> listeService;
+	
+	@ManyToOne
+	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
+	private Client client;
 
 	
 
