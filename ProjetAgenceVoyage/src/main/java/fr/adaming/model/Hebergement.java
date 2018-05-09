@@ -76,14 +76,6 @@ public class Hebergement implements Serializable {
 		this.listevoyage = listevoyage;
 	}
 
-	public List<Image> getListeimage() {
-		return listeimage;
-	}
-
-	public void setListeimage(List<Image> listeimage) {
-		this.listeimage = listeimage;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -91,7 +83,7 @@ public class Hebergement implements Serializable {
 	@Override
 	public String toString() {
 		return "Hebergement [id_h=" + id_h + ", selectionhbg=" + selectionhbg + ", listevoyage=" + listevoyage
-				+ ", listeimage=" + listeimage + "]";
+				+ "]";
 	}
 
 
