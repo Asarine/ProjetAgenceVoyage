@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<% response.sendRedirect("fCTRL/listeFormule"); %>
+<% response.sendRedirect("conseiller/fCTRL/listeFormule"); %>
 
 </body>
 </html>

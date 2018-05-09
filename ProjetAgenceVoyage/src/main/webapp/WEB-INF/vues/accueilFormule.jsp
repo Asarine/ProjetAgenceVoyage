@@ -12,25 +12,13 @@
 <title>Insert title here</title>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/ressources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-static-top">
- 
-<!-- navs -->
-<ul class="nav nav-pills">
-    
 
-    <li role="presentation"><a href="<c:url value='/fCTRL/listeFormule'/>">Liste des formules </a></li>
-    <li role="presentation"><a href="<c:url value='/fCTRL/afficheAjoutFormule'/>">Ajouter </a></li>
-  <li role="presentation"><a href="<c:url value='/fCTRL/afficheModifFormule'/>">Modifier </a></li>
-  <li role="presentation"><a href="<c:url value='/fCTRL/afficheRechFormule'/>">Rechercher </a></li>
-  <li role="presentation"><a href="<c:url value='/fCTRL/afficheSupprFormule'/>">Supprimer </a></li>
-  <li  role="presentation"> <a href="">Se déconnecter</a></li>
-</ul>
- 
-</nav>
+<%@ include file="/resources/template/header.html"%>
+
 
 <br/>
 <hr/>
@@ -61,9 +49,9 @@
 					<td>${f.hotel}</td>
 					<td>${f.voiture}</td>
 					<td>${f.voitureLouer.id }</td>
-					<td>${f.voitureLouer.catégorie }</td>
+					<td>${f.voitureLouer.categorie }</td>
 					<td>${f.voitureLouer.loueur }</td>					
-					<td><a href="${pageContext.request.contextPath}/fCTRL/deleteLinkFormule/${f.id_f}">Supprimer</a> | <a href="${pageContext.request.contextPath}/fCTRL/updateLinkFormule?pIdF=${f.id_f}">Modifier</a></td>
+					<td><a href="${pageContext.request.contextPath}/conseiller/fCTRL/deleteLinkFormule/${f.id_f}">Supprimer</a> | <a href="${pageContext.request.contextPath}/conseiller/fCTRL/updateLinkFormule?pIdF=${f.id_f}">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>

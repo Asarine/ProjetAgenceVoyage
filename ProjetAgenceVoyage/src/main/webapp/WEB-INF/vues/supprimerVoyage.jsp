@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/ressources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 

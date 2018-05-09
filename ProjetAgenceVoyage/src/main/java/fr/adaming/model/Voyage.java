@@ -56,7 +56,7 @@ public class Voyage implements Serializable {
 	@OneToMany(mappedBy="voyage", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Image> listeImages;
 	
-	@OneToMany(mappedBy="voyage", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="voyage")
 	private List<Client> client;
 	
 	

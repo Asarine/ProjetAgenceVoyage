@@ -35,7 +35,7 @@ public class Formule implements Serializable {
 	//transformation des associations uml en java :
 	
 	  //avec voyage :
-	@OneToMany(mappedBy="formule" , cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="formule" /*, cascade= CascadeType.REMOVE, fetch=FetchType.EAGER*/)
 	private List<Voyage> listeVoyage;
 	
 	

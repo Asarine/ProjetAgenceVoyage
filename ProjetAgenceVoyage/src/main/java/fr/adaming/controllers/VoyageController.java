@@ -24,7 +24,7 @@ import fr.adaming.model.Voyage;
 import fr.adaming.service.IVoyageService;
 
 @Controller
-@RequestMapping("/vCTRL")
+@RequestMapping("/conseiller/vCTRL")
 @Scope("session")
 public class VoyageController {
 	

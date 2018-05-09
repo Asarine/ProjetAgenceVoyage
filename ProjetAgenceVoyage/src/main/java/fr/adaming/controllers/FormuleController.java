@@ -24,7 +24,7 @@ import fr.adaming.model.Formule;
 import fr.adaming.service.IFormuleService;
 
 @Controller
-@RequestMapping("/fCTRL")
+@RequestMapping("/conseiller/fCTRL")
 @Scope("session")
 public class FormuleController {
 	
