@@ -2,9 +2,12 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +25,14 @@ public class Destination implements Serializable {
 	private String continent;
 	private String pays;
 
+	
+	//association avec image :
+	@OneToMany(mappedBy = "destination", cascade= CascadeType.DETACH)
+	private List<Image> listeImage;
+	
+	
 	// Association UML en Java
-	@OneToMany(mappedBy = "destination")
+	@OneToMany(mappedBy = "destination", cascade= CascadeType.DETACH)
 	private List<Voyage> listeVoyage;
 
 	public List<Voyage> getListeVoyage() {
