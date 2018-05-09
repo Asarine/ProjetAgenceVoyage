@@ -93,7 +93,9 @@ public class ParticipantController {
 
 	// 2 - Méthode pour soumettre le formulaire d'ajout
 	@RequestMapping(value = "/soumettreAjout", method = RequestMethod.POST)
-	public String soumettreFormAjout(ModelMap modele, @ModelAttribute("pAjout") Participant p, RedirectAttributes rda) {
+	public String soumettreFormAjout(ModelMap modele, @ModelAttribute("pAjout") Participant p, @RequestParam("pCivilite") String civilite, RedirectAttributes rda) {
+		p.setCivilite(civilite);
+		
 		// Appel de la méthode ajout de service
 		int verif = parService.addParticipant(p);
 
