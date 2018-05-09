@@ -12,26 +12,13 @@
 <title>Insert title here</title>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/ressources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 
 
-<nav class="navbar navbar-default navbar-static-top">
- 
-<!-- navs -->
-<ul class="nav nav-pills">
-  <li role="presentation" ><a href="<c:url value='/vCTRL/listeVoyage'/>">Accueil </a></li>        <!-- il faut appeler dans href l'url des methodes des Controllers et non la page -->
-  <li role="presentation"><a href="<c:url value='/vCTRL/afficheAjoutVoyage'/>">Ajouter </a></li>
-  <li role="presentation"><a href="<c:url value='/vCTRL/afficheModifVoyage'/>">Modifier </a></li>
-  <li role="presentation"><a href="<c:url value='/vCTRL/afficheRechVoyage'/>">Rechercher </a></li>
-  <li role="presentation"><a href="<c:url value='/vCTRL/afficheSupprVoyage'/>">Supprimer </a></li>
-    <li role="presentation"><a href="<c:url value='/fCTRL/listeFormule'/>">Liste des formules </a></li>
-  
-  <li  role="presentation"> <a href="">Se déconnecter</a></li>
-</ul>
- 
-</nav>
+<%@ include file="/resources/template/header.html"%>
+
 
 <br/>
 

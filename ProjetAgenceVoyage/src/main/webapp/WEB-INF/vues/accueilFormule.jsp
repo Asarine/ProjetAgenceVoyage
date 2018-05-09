@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/ressources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 
@@ -49,9 +49,9 @@
 					<td>${f.hotel}</td>
 					<td>${f.voiture}</td>
 					<td>${f.voitureLouer.id }</td>
-					<td>${f.voitureLouer.catégorie }</td>
+					<td>${f.voitureLouer.categorie }</td>
 					<td>${f.voitureLouer.loueur }</td>					
-					<td><a href="${pageContext.request.contextPath}/fCTRL/deleteLinkFormule/${f.id_f}">Supprimer</a> | <a href="${pageContext.request.contextPath}/fCTRL/updateLinkFormule?pIdF=${f.id_f}">Modifier</a></td>
+					<td><a href="${pageContext.request.contextPath}/conseiller/fCTRL/deleteLinkFormule/${f.id_f}">Supprimer</a> | <a href="${pageContext.request.contextPath}/conseiller/fCTRL/updateLinkFormule?pIdF=${f.id_f}">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>

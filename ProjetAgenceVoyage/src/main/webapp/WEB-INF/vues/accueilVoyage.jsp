@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet"
-	href="<c:url value='/ressources/css/bootstrap.css'/>" />
+	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 </head>
 <body>
 
@@ -59,7 +59,7 @@
 					<td>${v.destination.pays }</td>					
 					<td>${v.hebergement.id_h }</td>
 					<td>${v.formule.id_f }</td>
-					<td><a href="${pageContext.request.contextPath}/vCTRL/deleteLinkVoyage/${v.id_v}">Supprimer</a> | <a href="${pageContext.request.contextPath}/vCTRL/updateLinkVoyage?pIdV=${v.id_v}">Modifier</a></td>
+					<td><a href="${pageContext.request.contextPath}/conseiller/vCTRL/deleteLinkVoyage/${v.id_v}">Supprimer</a> | <a href="${pageContext.request.contextPath}/conseiller/vCTRL/updateLinkVoyage?pIdV=${v.id_v}">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
