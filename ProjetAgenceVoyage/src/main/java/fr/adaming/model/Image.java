@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="images")
@@ -22,6 +23,8 @@ public class Image implements Serializable {
 	@Lob
 	private byte[] contents;
 	
+	@Transient
+	private String photo;
 	
 	
 	//transformation uml en java :

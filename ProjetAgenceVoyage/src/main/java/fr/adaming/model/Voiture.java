@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,40 +21,39 @@ public class Voiture implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_vo")
 	private Long id;
-	private String catégorie;
+	private String categorie;
 	private String loueur;
-	@Lob
-	private byte[] photo;
 	
-	@OneToOne
+	@OneToOne(mappedBy="voitureLouer")
 	private Formule formule;
+	
+	@OneToMany(mappedBy="voiture")
+	private List<Image> imageVo;
 
 	public Formule getFormule() {
 		return formule;
 	}
 
+	
 	public void setFormule(Formule formule) {
 		this.formule = formule;
 	}
 
 	public Voiture() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Voiture(String catégorie, String loueur, byte[] photo) {
+	public Voiture(String categorie, String loueur) {
 		super();
-		this.catégorie = catégorie;
+		this.categorie = categorie;
 		this.loueur = loueur;
-		this.photo = photo;
 	}
 
-	public Voiture(Long id, String catégorie, String loueur, byte[] photo) {
+	public Voiture(Long id, String categorie, String loueur) {
 		super();
 		this.id = id;
-		this.catégorie = catégorie;
+		this.categorie = categorie;
 		this.loueur = loueur;
-		this.photo = photo;
 	}
 
 	public Long getId() {
@@ -63,12 +64,12 @@ public class Voiture implements Serializable {
 		this.id = id;
 	}
 
-	public String getCatégorie() {
-		return catégorie;
+	public String getCategorie() {
+		return categorie;
 	}
 
-	public void setCatégorie(String catégorie) {
-		this.catégorie = catégorie;
+	public void setCategorie(String catégorie) {
+		this.categorie = catégorie;
 	}
 
 	public String getLoueur() {
@@ -79,17 +80,20 @@ public class Voiture implements Serializable {
 		this.loueur = loueur;
 	}
 
-	public byte[] getPhoto() {
-		return photo;
+
+	public List<Image> getImageVo() {
+		return imageVo;
 	}
 
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
+
+	public void setImageVo(List<Image> imageVo) {
+		this.imageVo = imageVo;
 	}
+
 
 	@Override
 	public String toString() {
-		return "Voiture [id=" + id + ", catégorie=" + catégorie + ", loueur=" + loueur + "]";
+		return "Voiture [id=" + id + ", catégorie=" + categorie + ", loueur=" + loueur + "]";
 	}
 
 	

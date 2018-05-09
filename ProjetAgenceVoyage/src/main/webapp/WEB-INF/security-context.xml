@@ -16,7 +16,7 @@
 		<!-- injecter les props de la connexion - $ = read only -->
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.user}" />
+		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.mdp}" />
 	</bean>
 
@@ -27,10 +27,13 @@
 		<security:intercept-url pattern="/conseiller/**"
 			access="ROLE_CONSEILLER" />
 
+		<security:intercept-url pattern="/voiture/**"
+			access="ROLE_CONSEILLER" />
+
 		<!-- Utiliser un formulaire spécial pour le login -->
 		<security:form-login login-page="/login"
 			authentication-failure-url="/loginEchec" login-processing-url="/connexion"
-			default-target-url="/conseiller/vCTRL/liste" />
+			default-target-url="/conseiller/accueil" />
 
 		<!-- Page d'accès refusé -->
 		<security:access-denied-handler
@@ -48,7 +51,7 @@
 			<security:jdbc-user-service
 				data-source-ref="dataSourceBean1"
 				users-by-username-query="SELECT mail, mdp, active FROM conseillers WHERE mail =?"
-				authorities-by-username-query="SELECT c.mail, r.rolename FROM conseillers c, roles r WHERE c.id_c = r.c_id AND c.mail = ?" />
+				authorities-by-username-query="SELECT c.mail, r.rolename FROM conseillers c, roles r WHERE c.id_co = r.co_id AND c.mail = ?" />
 
 		</security:authentication-provider>
 
