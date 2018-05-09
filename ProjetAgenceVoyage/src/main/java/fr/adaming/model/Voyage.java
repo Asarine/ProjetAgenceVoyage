@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,10 +53,10 @@ public class Voyage implements Serializable {
 	@JoinColumn(name="f_id", referencedColumnName="id_f")
 	private Formule formule;
 	
-	@OneToMany(mappedBy="voyage")
+	@OneToMany(mappedBy="voyage", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Image> listeImages;
 	
-	@OneToMany(mappedBy="voyage")
+	@OneToMany(mappedBy="voyage", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Client> client;
 	
 	
