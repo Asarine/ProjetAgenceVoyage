@@ -24,6 +24,12 @@ public class Destination implements Serializable {
 	private String continent;
 	private String pays;
 
+	
+	//association avec image :
+	@OneToMany(mappedBy = "destination", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
+	private List<Image> listeImage;
+	
+	
 	// Association UML en Java
 	@OneToMany(mappedBy = "destination", cascade= CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private List<Voyage> listeVoyage;
