@@ -33,8 +33,6 @@ public class Hebergement implements Serializable {
 	// Transformation association
 	@OneToMany(mappedBy = "hebergement")
 	List<Voyage> listevoyage;
-	@OneToMany(mappedBy = "hebergement")
-	List<Image> listeimage;
 
 	// Constructeurs
 

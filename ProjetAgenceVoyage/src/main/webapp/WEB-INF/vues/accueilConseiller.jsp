@@ -13,5 +13,7 @@
 
 	<a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a>
 	<a href="<c:url value='/voiture/listeVoitures'/>">Afficher les voitures</a>
+	
+	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEQcHTtm1MqausneGtJeL-gICH7dnELrhnrRoxYWyZZXK_ug/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Chargement en cours...</iframe>
 </body>
 </html>

@@ -27,13 +27,7 @@ public class Image implements Serializable {
 	private String photo;
 	
 	
-	//transformation uml en java :
-	
-	//avec hebergement :
-	 @ManyToOne
-	 @JoinColumn(name="h_id",referencedColumnName="id_h")
-	private Hebergement hebergement;
-	
+	//transformation uml en java 
 	
 	  //avec voiture :
 	 @ManyToOne
@@ -80,20 +74,6 @@ public class Image implements Serializable {
 	public long getId_im() {
 		return id_im;
 	}
-
-
-
-	public Hebergement getHebergement() {
-		return hebergement;
-	}
-
-
-
-	public void setHebergement(Hebergement hebergement) {
-		this.hebergement = hebergement;
-	}
-
-
 
 	public Voiture getVoiture() {
 		return voiture;
