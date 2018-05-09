@@ -36,7 +36,7 @@ public class DestinationDaoImpl implements IDestinationDao {
 
 		return verif;
 	}
-ddf
+
 	@Override
 	public Destination getDestinationbyId(long id_d) {
 		String req="SELECT ds FROM Destination as ds WHERE ds.id=:pId";

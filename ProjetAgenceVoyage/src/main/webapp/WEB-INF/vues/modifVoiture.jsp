@@ -18,7 +18,7 @@
 	<h1 style="color: crimson; text-align: center">Modifier une voiture</h1>
 	<br/>
 	<form:form cssClass="form-horizontal" method="POST"
-		action="http://localhost:8080/ProjetAgenceVoyage/voiture/modifVoiture" modelAttribute="voitureModifiee">
+		action="modifVoiture" modelAttribute="voitureModifiee">
 		<div class="form-group">
 			<form:label cssClass="col-sm-2 control-label" path="id">ID</form:label>
 			<div class="col-sm-6">
