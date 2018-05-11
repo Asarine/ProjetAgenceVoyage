@@ -40,6 +40,7 @@
 		<th>Date de naissance</th>
 		<th>Mail</th>
 		<th>Numero compte bancaire</th>
+		<th>Id du conseiller</th>
 		<th>Operations</th>
 	</tr>
 	
@@ -54,7 +55,6 @@
 		<td>${clFind.mail}</td>
 		<td>${clFind.numcb}</td>
 		<td>${clFind.conseiller.id_co}</td>
-		<td>${clFind.voyage.id_v}</td>
 		<td><a href="${pageContext.request.contextPath}/clCTRL/deleteLink/${clFind.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/clCTRL/updateLink?pId=${clFind.id}">Modifier</a></td>
 	</tr>
 	

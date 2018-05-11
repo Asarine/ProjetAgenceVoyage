@@ -35,6 +35,7 @@
 				<th>Numéro de <br/> téléphone</th>
 				<th>Date de<br/> naissance</th>
 				<th>Mail</th>
+				<th>Id du client </th>
 				<th>Opérations</th>
 			</tr>
 			<c:forEach var="p" items="${listeParticipant}">
@@ -46,6 +47,7 @@
 					<td>${p.tel}</td>
 					<td><fmt:formatDate pattern="dd/MM/yyyy" value="${p.dn}" /></td>
 					<td>${p.mail}</td>
+					<td>${p.client.id}</td>
 					<td><a href="<c:url value = '/conseiller/pCTRL/deleteLink/${p.id}' />">Supprimer</a>
 						| <a href="<c:url value = '/conseiller/pCTRL/updateLink?pId=${p.id}' />">Modifier</a></td>
 				</tr>

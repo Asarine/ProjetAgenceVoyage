@@ -32,7 +32,7 @@ public class ParticipantDaoImpl implements IParticipantDao {
 	public int updateParticipant(Participant p) {
 		// Requete JPQL
 		String req = "UPDATE Participant par SET par.prenom=:pPrenom, par.nom=:pNom, "
-				+ "par.civilite=:pCivil, par.tel=:pTel, par.dn=:pDn, par.mail=:pMail WHERE par.id=:pId";
+				+ "par.civilite=:pCivil, par.tel=:pTel, par.dn=:pDn, par.mail=:pMail, par.client.id=:pIdCl WHERE par.id=:pId";
 
 		// Objet pour envoyer la requete
 		Query query = em.createQuery(req);
@@ -44,6 +44,7 @@ public class ParticipantDaoImpl implements IParticipantDao {
 		query.setParameter("pTel", p.getTel());
 		query.setParameter("pDn", p.getDn());
 		query.setParameter("pMail", p.getMail());
+		query.setParameter("pIdCl ", p.getClient().getId());
 		query.setParameter("pId", p.getId());
 
 		// Envoyer la requete et récupérer le résultat

@@ -87,6 +87,15 @@
 			</div>
 			<form:errors path="mail" cssStyle="color:red" />
 		</div>
+		
+		<div class="form-group">
+			<form:label path="mail" cssClass="col-sm-2 control-label">Id du client</form:label>
+			<div class="col-sm-4">
+				<form:input path="client.id" cssClass="form-control" placeholder="IdClient" />
+			</div>
+			<form:errors path="client.id" cssStyle="color:red" />
+		</div>
+		
 		<br />
 
 		<div class="form-group">

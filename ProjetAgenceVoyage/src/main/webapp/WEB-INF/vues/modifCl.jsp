@@ -87,12 +87,7 @@
     </div>
   </div>
   
-  <div class="form-group">
-    <form:label class="col-sm-2 control-label" path="voyage.id_v">id voyage</form:label>
-    <div class="col-sm-10">
-      <form:input cssclass="form-control" placeholder="IdVoyage" path="voyage.id_v"/>
-    </div>
-  </div>
+ 
  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

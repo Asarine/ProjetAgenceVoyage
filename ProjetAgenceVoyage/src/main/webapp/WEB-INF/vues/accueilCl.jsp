@@ -35,7 +35,6 @@
 		<th>Mail</th>
 		<th>Numero compte bancaire</th>
 		<th>Id conseiller</th>
-		<th>Id voyage</th>
 		
 		
 		<th>Operations</th>
@@ -52,8 +51,6 @@
 		<td>${cl.mail}</td>
 		<td>${cl.numcb}</td>
 		<td>${cl.conseiller.id_co}</td>
-		<td>${cl.voyage.id_v}</td>
-		
 		
 		<td><a href="${pageContext.request.contextPath}/clCTRL/deleteLink/${cl.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/clCTRL/updateLink?pId=${cl.id}">Modifier</a></td>
 	</tr>

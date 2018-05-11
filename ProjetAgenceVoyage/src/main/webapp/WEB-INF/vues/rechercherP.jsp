@@ -60,6 +60,7 @@
 				<th>Numéro de <br /> téléphone
 				</th>
 				<th>Mail</th>
+				<th>Id client</th>
 				<th>Opérations</th>
 			</tr>
 			<tr>
@@ -70,6 +71,7 @@
 				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${pOut.dn}" /></td>
 				<td>${p.tel}</td>
 				<td>${pOut.mail}</td>
+				<td>${pOut.client.id}</td>
 				<td></td>
 				<!-- Supprimer | Modifier -->
 			</tr>
