@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,6 +49,10 @@ public class Client implements Serializable {
 
 	@OneToMany(mappedBy = "client")
 	private List<Participant> listeParticipant;
+	
+	@OneToOne
+	@JoinColumn(name="dos_id", referencedColumnName="id_dos")
+	private Dossier dossier;
 
 	public Client() {
 		super();
