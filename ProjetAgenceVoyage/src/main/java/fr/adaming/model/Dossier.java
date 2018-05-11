@@ -49,7 +49,7 @@ public class Dossier implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
-	private List<Voyage> voyagesDos;
+	private Voyage voyageDos;
 
 	public List<Participant> getParticipantsDos() {
 		return participantsDos;
@@ -120,12 +120,12 @@ public class Dossier implements Serializable {
 		this.clientDos = clientDos;
 	}
 
-	public List<Voyage> getVoyagesDos() {
-		return voyagesDos;
+	public Voyage getVoyageDos() {
+		return voyageDos;
 	}
 
-	public void setVoyagesDos(List<Voyage> voyagesDos) {
-		this.voyagesDos = voyagesDos;
+	public void setVoyageDos(Voyage voyageDos) {
+		this.voyageDos = voyageDos;
 	}
 
 }
