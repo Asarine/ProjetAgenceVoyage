@@ -42,13 +42,15 @@ public class DossierDaoImpl implements IDossierDao {
 	public int updateDossier(Dossier dos) {
 		
 		// Création de la requête
-		String req = "UPDATE Dossier ds SET ds.statutdossier=:pStatutdossier WHERE ds.id=:pId";
+		String req = "UPDATE Dossier ds SET ds.statutdossier=:pStatutdossier, ds.assurance=:pAssurance, ds.prixTotal=:pPrixTotal WHERE ds.id=:pId";
 		
 		// Création du query
 		Query query = em.createQuery(req);
 		
 		// Passage des params
 		query.setParameter("pStatutdossier", dos.getStatutdossier());
+		query.setParameter("pAssurance", dos.isAssurance());
+		query.setParameter("pPrixTotal", dos.getPrixTotal());
 		query.setParameter("pId", dos.getId());
 		
 		return query.executeUpdate();

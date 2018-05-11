@@ -31,14 +31,22 @@
 <table class="table table-bordered">
 	<tr>
 		<th>ID</th>
+		<th>Client</th>
+		<th>Voyage</th>
 		<th>Statut Dossier</th>
+		<th>Assurance</th>
+		<th>Prix Total</th>
 		<th>Operations</th>
 	</tr>
 	
 	<c:forEach var="dos" items="${listeDossier}">
 	<tr>
 		<td>${dos.id}</td>
+		<td>${dos.clientDos}</td>
+		<td>${dos.voyageDos}</td>
 		<td>${dos.statutdossier}</td>
+		<td>${dos.assurance}</td>
+		<td>${dos.prixTotal}</td>
 		
 		<td><a href="${pageContext.request.contextPath}/dosCTRL/deleteLink/${dos.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/dosCTRL/updateLink?pId=${dos.id}">Modifier</a></td>
 	</tr>
