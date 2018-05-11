@@ -44,7 +44,7 @@ public class ParticipantDaoImpl implements IParticipantDao {
 		query.setParameter("pTel", p.getTel());
 		query.setParameter("pDn", p.getDn());
 		query.setParameter("pMail", p.getMail());
-		query.setParameter("pIdCl ", p.getClient().getId());
+		query.setParameter("pIdCl", p.getClient().getId());
 		query.setParameter("pId", p.getId());
 
 		// Envoyer la requete et récupérer le résultat

@@ -69,7 +69,7 @@
 				<td>${pOut.nom}</td>
 				<td>${pOut.prenom}</td>
 				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${pOut.dn}" /></td>
-				<td>${p.tel}</td>
+				<td>${pOut.tel}</td>
 				<td>${pOut.mail}</td>
 				<td>${pOut.client.id}</td>
 				<td></td>
