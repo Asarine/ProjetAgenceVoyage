@@ -60,7 +60,7 @@ public class Voyage implements Serializable {
 	// @ManyToMany(mappedBy="voyagesDos")
 	// private List<Dossier> listeDossier;
 	
-	@OneToMany(mappedBy = "voyagesDos")
+	@OneToMany(mappedBy = "voyageDos")
 	private List<Dossier> listeDossier;
 
 	// les constructeurs :
