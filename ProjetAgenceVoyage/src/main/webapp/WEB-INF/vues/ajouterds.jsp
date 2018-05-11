@@ -1,4 +1,4 @@
-a<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -7,21 +7,17 @@ a<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap-theme.css'/>" />
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a href="accueil.jsp">accueil</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/dsCTRL/listeDest">Destinations</a></li>
-			<li role="presentation"><a href="${pageContext.request.contextPath}/dsCTRL/afficheAjoutds">Ajouter Destination</a></li>
-			<li role="presentation"><a href="${pageContext.request.contextPath}/dsCTRL/afficheSupprds">Supprimer Destination</a></li>
-			<li role="presentation"><a href="${pageContext.request.contextPath}/dsCTRL/affichRechds">Rechercher Destination</a></li>
-			<li role="presentation"><a href="${pageContext.request.contextPath}/dsCTRL/affichModifds">Modifier Destination</a></li>
-		</ul>
-	</nav>
+
+<%@ include file="/resources/template/headerDestinationConseiller.html"%>
+
+
 	<br>
 
 	<h1 style="color: red; text-align: center">Formulaire d'ajout</h1>

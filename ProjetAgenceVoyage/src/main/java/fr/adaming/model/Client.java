@@ -37,9 +37,9 @@ public class Client implements Serializable {
 	private String mdp;
 
 	// transformation UML en Java
-	@ManyToOne
-	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
-	private Voyage voyage;
+//	@ManyToOne
+//	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
+//	private Voyage voyage;
 
 	@ManyToOne
 	@JoinColumn(name = "co_id", referencedColumnName = "id_co")
@@ -157,13 +157,13 @@ public class Client implements Serializable {
 		this.mdp = mdp;
 	}
 
-	public Voyage getVoyage() {
-		return voyage;
-	}
-
-	public void setVoyage(Voyage voyage) {
-		this.voyage = voyage;
-	}
+//	public Voyage getVoyage() {
+//		return voyage;
+//	}
+//
+//	public void setVoyage(Voyage voyage) {
+//		this.voyage = voyage;
+//	}
 
 	public Conseiller getConseiller() {
 		return conseiller;
