@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -50,9 +51,8 @@ public class Client implements Serializable {
 	@OneToMany(mappedBy = "client")
 	private List<Participant> listeParticipant;
 
-	@OneToOne
-	@JoinColumn(name = "dos_id", referencedColumnName = "id_dos")
-	private Dossier dossier;
+	@ManyToMany(mappedBy="clientDos")
+	private List<Dossier> dossier;
 
 	public Client() {
 		super();
@@ -189,11 +189,11 @@ public class Client implements Serializable {
 		this.listeParticipant = listeParticipant;
 	}
 
-	public Dossier getDossier() {
+	public List<Dossier> getDossier() {
 		return dossier;
 	}
 
-	public void setDossier(Dossier dossier) {
+	public void setDossier(List<Dossier> dossier) {
 		this.dossier = dossier;
 	}
 

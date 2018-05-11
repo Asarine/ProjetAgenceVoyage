@@ -65,7 +65,6 @@ public class VoyageDaoImpl implements IVoyageDao {
 		query.setParameter("pNbPlaces", v.getNbPlaces());
 		query.setParameter("pTarif", v.getTarif());
 		query.setParameter("pDisponibilite", v.getDisponibilite());
-		query.setParameter("pAssurance", v.isAssurance());
 		query.setParameter("pHebergementId", v.getHebergement().getId_h());
 		query.setParameter("pDestinationId", v.getDestination().getId());
 		query.setParameter("pFormuleId", v.getFormule().getId_f());

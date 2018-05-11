@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,8 +32,6 @@ public class Voyage implements Serializable {
 	private int nbPlaces;
 	private int tarif;
 	private String disponibilite;
-	@Column(columnDefinition = "TINYINT(1)")
-	private boolean assurance;
 	
 	//transformation des associations uml en java :
 	
@@ -57,22 +56,23 @@ public class Voyage implements Serializable {
 	@OneToMany(mappedBy="voyage")
 	private List<Client> client;
 	
+	@ManyToMany(mappedBy="voyagesDos")
+	private List<Dossier> listeDossier;
 	
 	//les constructeurs :
 
 	public Voyage() {
 		super();
 	}
-	public Voyage(Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite, boolean assurance) {
+	public Voyage(Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite) {
 		super();
 		this.dateD = dateD;
 		this.dateR = dateR;
 		this.nbPlaces = nbPlaces;
 		this.tarif = tarif;
 		this.disponibilite = disponibilite;
-		this.assurance = assurance;
 	}
-	public Voyage(long id_v, Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite, boolean assurance) {
+	public Voyage(long id_v, Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite) {
 		super();
 		this.id_v = id_v;
 		this.dateD = dateD;
@@ -80,7 +80,6 @@ public class Voyage implements Serializable {
 		this.nbPlaces = nbPlaces;
 		this.tarif = tarif;
 		this.disponibilite = disponibilite;
-		this.assurance = assurance;
 	}
 	
 	
@@ -153,19 +152,19 @@ public class Voyage implements Serializable {
 	public void setDisponibilite(String disponibilite) {
 		this.disponibilite = disponibilite;
 	}
-	public boolean isAssurance() {
-		return assurance;
-	}
-	public void setAssurance(boolean assurance) {
-		this.assurance = assurance;
-	}
 	
 	
+	public List<Dossier> getListeDossier() {
+		return listeDossier;
+	}
+	public void setListeDossier(List<Dossier> listeDossier) {
+		this.listeDossier = listeDossier;
+	}
 	//méthodes toString sans les attributs d'associations:
 	@Override
 	public String toString() {
 		return "Voyage [id_v=" + id_v + ", dateD=" + dateD + ", dateR=" + dateR + ", nbPlaces=" + nbPlaces + ", tarif="
-				+ tarif + ", disponibilite=" + disponibilite + ", assurance=" + assurance + "]";
+				+ tarif + ", disponibilite=" + disponibilite + "]";
 	}
 	
 	

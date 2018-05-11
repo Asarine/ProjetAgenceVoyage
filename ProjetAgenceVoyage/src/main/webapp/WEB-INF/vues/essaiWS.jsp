@@ -30,7 +30,23 @@
 			Prix
 			<div class="col-sm-6">
 				<input class="form-control"
-					placeholder="Numero" name="pPrix" />
+					placeholder="Prix" name="pPrix" />
+			</div>
+	<div class="col-sm-offset-2 col-sm-10">
+		<input type="submit" class="btn btn-default" value="Ajouter">
+	</div>
+	</form:form>
+	
+	<form:form class="form-horizontal" method="POST" action="d">
+			Numéro CB
+			<div class="col-sm-6">
+				<input class="form-control"
+					placeholder="NumeroPouRMB" name="pNumCb" />
+			</div>
+			Prix
+			<div class="col-sm-6">
+				<input class="form-control"
+					placeholder="PrixPourRMB" name="pPrix" />
 			</div>
 	<div class="col-sm-offset-2 col-sm-10">
 		<input type="submit" class="btn btn-default" value="Ajouter">
