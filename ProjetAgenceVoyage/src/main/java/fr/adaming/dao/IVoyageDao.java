@@ -11,5 +11,5 @@ public interface IVoyageDao {
 	public int updateVoyage (Voyage v);
 	public int deleteVoyage (Voyage v);
 	public Voyage getVoyageById (Voyage v);
-
+	public List<Voyage> getbymotcle(String mc);
 }
