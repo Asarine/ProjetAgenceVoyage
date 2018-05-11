@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">BoVoyage</a>
+		</div>
+
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Voyages</a></li>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#">A propos de moi <span
+					class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value = '/client/clCTRL/listeClient' />">Mes
+							informations</a></li>
+					<li><a href="<c:url value = '/client/clCTRL/formAjout' />">Modifier
+							mes coordonnées</a></li>
+					<!-- 					<li><a href="<c:url value = '/client/clCTRL/formAjout' />">Ne plus être client de BoVoyage</a></li> -->
+				</ul></li>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#">Mes accompagnants<span
+					class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value = '/client/pCTRL/listeP_Cl' />">Liste
+							des accompagnants</a></li>
+					<li><a
+						href="<c:url value = '/client/pCTRL/afficheAjoutP_Cl' />">Ajouter
+							un accompagnant</a></li>
+				</ul></li>
+			<li><a href="<c:url value='/client/vCTRL/listeVoyage'/>">Mes
+					voyages</a></li>
+		</ul>
+	</div>
+</nav>
