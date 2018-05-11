@@ -10,31 +10,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 </head>
 <body>
 
 
 
+<br/>
 
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheAjoutVoyage'/>">ajouter un nouveau voyage </a></button>
-  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheModifVoyage'/>">modifier les modalites d'un voyage </a></button>
-  <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheRechVoyage'/>">rechercher un voyage a la liste</a></button>
-    <button type="button" class="btn btn-default"><a href="<c:url value='/conseiller/vCTRL/afficheSupprVoyage'/>">supprimer un voyage de la liste</a></button>
-    
-  
-</div>
+<%@ include file="/resources/template/headerVoyageConseiller.html"%>
 
-<div class="btn-group pull-right" role="group" aria-label="..." style="text-align: right">
 
-    <button type="button" class="btn btn-default" style="text-align: right;"><a href="<c:url value='/conseiller/fCTRL/listeFormule'/>">Accéder à la gestion des formules</a></button>
-        <button type="button" class="btn btn-default" style="text-align: right;"><a href="<c:url value='/conseiller/fCTRL/listeDest'/>">Accéder à la gestion des destinations</a></button>
-                <button type="button" class="btn btn-default" style="text-align: right;"><a href="#">Accéder à la gestion des hebergements</a></button>
-        
-    
-</div>
+ 
 
 
 
@@ -54,7 +44,6 @@
 				<th>Nombre de place</th>
 				<th>Tarif</th>
 				<th>Disponibilite</th>
-				<th>Assurance</th>
 				<th>Id de la destination</th>
 				<th>Pays de la destination</th>				
 				<th>Id de l'hebergement</th>
@@ -72,7 +61,6 @@
 					<td>${v.nbPlaces}</td>
 					<td>${v.tarif }</td>
 					<td>${v.disponibilite}</td>
-					<td>${v.assurance }</td>
 					<td>${v.destination.id }</td>
 					<td>${v.destination.pays }</td>					
 					<td>${v.hebergement.id_h }</td>

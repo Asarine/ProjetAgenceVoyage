@@ -37,7 +37,7 @@
   <div class="panel-heading "><h3 class="panel-title" align="center"><b>Référence du voyage</b> : ${v.id_v}</h3></div>
   <div class="panel-body " align="center" ><b>Date de depart </b>: ${v.dateD} -  <b>Date de retour</b> : ${v.dateR} 
   <br/> <b>Nombre de places </b>: ${v.nbPlaces} - <b> Disponibilite</b> : ${v.disponibilite}
-       <br/><b>Tarif</b> : ${v.tarif} - <b> Assurance</b> : ${v.assurance} <br/> <b>Numero de la destination</b> : ${v.destination.id} - <b>Lieu de la destination</b> : ${v.destination.pays}
+       <br/><b>Tarif</b> : ${v.tarif}  <br/> <b>Numero de la destination</b> : ${v.destination.id} - <b>Lieu de la destination</b> : ${v.destination.pays}
        <br/><b> Nuemero du type d'hebergement </b> : ${v.hebergement.id_h } <br/> <b> Numero du type de formule</b> : ${v.formule.id_f}  </div>
   </c:forEach>
 </div>
