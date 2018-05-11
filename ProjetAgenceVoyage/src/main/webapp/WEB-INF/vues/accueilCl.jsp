@@ -9,20 +9,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>"/>
 <title>Accueil Client</title>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
- <ul class="nav nav-pills">
-  <li role="presentation"><a href="${pageContext.request.contextPath}/conseiller/clCTRL/listeClient">Accueil</a></li>
-  <li role="presentation"><a href="<c:url value='/conseiller/clCTRL/formAjout'/>">Ajouter</a></li>
-  <li role="presentation"><a href="<c:url value='/conseiller/clCTRL/formModif'/>">Modifier</a></li>
-  <li role="presentation"><a href="<c:url value='/conseiller/clCTRL/formSupp'/>">Supprimer</a></li>
-  <li role="presentation"><a href="${pageContext.request.contextPath}/conseiller/clCTRL/formRech">Rechercher</a></li>
-  </ul>
-</nav>
+
+
+<%@ include file="/resources/template/headerClientConseiller.html"%>
+
 
 <h1 style="color:green;text-align: center">Liste des clients</h1>
 
