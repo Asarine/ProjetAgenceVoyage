@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -104,4 +103,15 @@ public class VoyageDaoImpl implements IVoyageDao {
 		return (Voyage) query.getSingleResult();
 	}
 
+	
+
+	@Override
+	public List<Voyage> getbymotcle(String mc) {
+		String req="FROM Voyage v WHERE v.destination.continent LIKE :pMc OR v.destination.pays LIKE :pMc OR v.disponibilite LIKE :pMc";
+		Query q=em.createQuery(req);
+		q.setParameter("pMc", "%"+mc+"%");
+		return q.getResultList();
+	}
+
+	
 }

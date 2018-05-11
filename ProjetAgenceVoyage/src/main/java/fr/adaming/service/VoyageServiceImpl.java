@@ -48,4 +48,10 @@ public class VoyageServiceImpl implements IVoyageService {
 		return voyDao.getVoyageById(v);
 	}
 
+	@Override
+	public List<Voyage> getbymotcle(String mc) {
+		// TODO Auto-generated method stub
+		return voyDao.getbymotcle(mc);
+	}
+
 }
