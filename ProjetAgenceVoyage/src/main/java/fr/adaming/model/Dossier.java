@@ -7,17 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "dossiers")
 public class Dossier implements Serializable {
 
+	// Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_dos")
 	private long id;
 	private String statutdossier;
+	
+	// Transformation de l'association UML en JAVA
+	@OneToOne(mappedBy="dossier")
+	private Client client;
 
 	// Constructeurs
 	public Dossier() {

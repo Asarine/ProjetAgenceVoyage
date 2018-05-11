@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap.css'/>"/>
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>"/>
 <title>Accueil Client</title>
 </head>
 <body>
