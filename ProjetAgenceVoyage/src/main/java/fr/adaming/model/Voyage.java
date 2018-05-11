@@ -53,8 +53,8 @@ public class Voyage implements Serializable {
 	@OneToMany(mappedBy="voyage")
 	private List<Image> listeImages;
 	
-	@OneToMany(mappedBy="voyage")
-	private List<Client> client;
+	/*@OneToMany(mappedBy="voyage")
+	private List<Client> client;  */
 	
 	@ManyToMany(mappedBy="voyagesDos")
 	private List<Dossier> listeDossier;
@@ -113,12 +113,12 @@ public class Voyage implements Serializable {
 	public void setListeImages(List<Image> listeImages) {
 		this.listeImages = listeImages;
 	}
-	public List<Client> getClient() {
+	/*public List<Client> getClient() {
 		return client;
 	}
 	public void setClient(List<Client> client) {
 		this.client = client;
-	}
+	}*/
 	public void setId_v(long id_v) {
 		this.id_v = id_v;
 	}

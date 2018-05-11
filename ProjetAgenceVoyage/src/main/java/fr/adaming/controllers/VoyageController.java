@@ -142,7 +142,7 @@ public class VoyageController {
 		
 		if(verifSupprim != 0)
 		{
-			return "redirect:listeVoyage";
+			return "redirect:listeVoyageApres";
 		}
 		
 		else 
@@ -172,7 +172,7 @@ public class VoyageController {
 		
 		if(vOut.getId_v() != 0)
 		{
-			return "redirect:listeVoyage";
+			return "redirect:listeVoyageApres";
 
 		}
 		else 
@@ -201,7 +201,7 @@ public class VoyageController {
 		
 		if(verifModif!=0)
 		{
-			return "redirect:listeVoyage";
+			return "redirect:listeVoyageApres";
 
 		}
 		else 
@@ -229,7 +229,7 @@ public class VoyageController {
 		 //metter a jour dans la page d'accueil
 		 modele.addAttribute("listeVoy", liste);
 		 
-		 return "accueilVoyage";
+		 return "listeVoyage";
 				
 			}
 	
