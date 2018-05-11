@@ -33,7 +33,7 @@ public class Client implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dn;
 	private String mail;
-	private long numcb;
+	private String numcb;
 	private String mdp;
 
 	// transformation UML en Java
@@ -51,14 +51,14 @@ public class Client implements Serializable {
 	@OneToMany(mappedBy = "client")
 	private List<Participant> listeParticipant;
 
-	@ManyToMany(mappedBy="clientDos")
+	@OneToMany(mappedBy="clientDos")
 	private List<Dossier> dossier;
 
 	public Client() {
 		super();
 	}
 
-	public Client(String prenom, String nom, String civilite, String tel, Date dn, String mail, long numcb,
+	public Client(String prenom, String nom, String civilite, String tel, Date dn, String mail, String numcb,
 			String mdp) {
 		super();
 		this.prenom = prenom;
@@ -71,7 +71,7 @@ public class Client implements Serializable {
 		this.mdp = mdp;
 	}
 
-	public Client(long id, String prenom, String nom, String civilite, String tel, Date dn, String mail, long numcb,
+	public Client(long id, String prenom, String nom, String civilite, String tel, Date dn, String mail, String numcb,
 			String mdp) {
 		super();
 		this.id = id;
@@ -141,11 +141,11 @@ public class Client implements Serializable {
 		this.mail = mail;
 	}
 
-	public long getNumcb() {
+	public String getNumcb() {
 		return numcb;
 	}
 
-	public void setNumcb(long numcb) {
+	public void setNumcb(String numcb) {
 		this.numcb = numcb;
 	}
 

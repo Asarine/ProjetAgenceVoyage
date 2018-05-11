@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
@@ -28,9 +29,10 @@ public class Dossier implements Serializable {
 	private double prixTotal;
 	
 	// Transformation de l'association UML en JAVA
-	@ManyToMany
-	@JoinTable(name="voy_dos_jointure", joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="voy_id"))
-	private List<Client> clientDos;
+	@ManyToOne()
+	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
+	private Client clientDos;
+//	@JoinTable(name="voy_dos_jointure", joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="voy_id"))
 	
 	@ManyToMany
 	@JoinTable(name="cl_dos_jointure", joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="cl_id"))
@@ -92,11 +94,11 @@ public class Dossier implements Serializable {
 		this.prixTotal = prixTotal;
 	}
 
-	public List<Client> getClientDos() {
+	public Client getClientDos() {
 		return clientDos;
 	}
 
-	public void setClientDos(List<Client> clientDos) {
+	public void setClientDos(Client clientDos) {
 		this.clientDos = clientDos;
 	}
 
