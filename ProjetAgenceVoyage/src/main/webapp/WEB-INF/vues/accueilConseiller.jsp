@@ -9,7 +9,7 @@
 <title>Accueil</title>
 </head>
 <body>
-<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyage"><img src="src/main/webapp/resources/image/maison.jpg"/></a></div>
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyage"><img src="../resources/image/maison.jpg" width="40px" height="40px"/></a></div>
 
 <h1 style="text-align: : center;">Enquêtes et études de satisfactions clients</h1>
 

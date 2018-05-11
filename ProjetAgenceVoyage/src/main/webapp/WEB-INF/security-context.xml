@@ -32,7 +32,8 @@
 
 		<!-- Utiliser un formulaire spécial pour le login -->
 		<security:form-login login-page="/login"
-			authentication-failure-url="/loginEchec" login-processing-url="/connexion"
+			authentication-failure-url="/loginEchec" 
+			login-processing-url="/connexion"
 			default-target-url="/conseiller/accueil" />
 
 		<!-- Page d'accès refusé -->
