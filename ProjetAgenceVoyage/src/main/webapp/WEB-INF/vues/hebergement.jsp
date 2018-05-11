@@ -3,52 +3,41 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+  <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Page Accueil</title>
-<!-- Spécifier le chemin du fichier bootstrap.css -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/hbgController/listeHbg">Accueil hebergement</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/hbgCTRL/Ajouthbg'/>">Ajouter</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/hbgController/modifHbg'/>">Modifier</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/hbgController/suppHbg'/>">Supprimer</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/hbgController/rechhbg'/>">Rechercher</a></li>
-			<li role="presentation"><a
-				href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a></li>
-		</ul>
-	</nav>
+	
+	<%@ include file="/resources/template/headerHebergementConseiller.html"%>
+	
+	
+	
 	<hr />
 	<h1 style="color: coral; text-align: center">Liste des hebergements</h1>
 	<div align="center">
 		<table class="table table-bordered">
 			<tr>
 				<th>ID</th>
-				<th>Petit dej</th>
-				<th>dej</th>
-				<th>diner</th>
+				<th>Selection du type d'hebergement</th>
 				<th>Operation</th>
 			</tr>
 
-			<c:forEach var="h" items="${listeHbg}">
+			<c:forEach var="h" items="${hbgliste}">
 				<tr>
 					<td>${h.id_h}</td>
-				
-
+				     <td>${h.selectionhbg}</td>
 					<td><a
-						href="${pageContext.request.contextPath}/hbgController/deleteLink/${h.id_h}">Supprimer</a>|<a
-						href="${pageContext.request.contextPath}/hbgController/updateLink?pId=${h.id_h}">Modifier</a></td>
+						href="${pageContext.request.contextPath}/conseiller/hbgCTRL/deleteLink/${h.id_h}">Supprimer</a>|<a
+						href="${pageContext.request.contextPath}/conseiller/hbgCTRL/updateLink?pId=${h.id_h}">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>

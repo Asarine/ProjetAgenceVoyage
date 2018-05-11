@@ -33,8 +33,9 @@ public class HerbergementDaoImpl implements IHebergementDao {
 
 	@Override
 	public long updatehebergement(Hebergement hbg) {
-		String req = "UPDATE Herbergement as hbg SET hbg.selectionhbg=:pSlcHbg WHERE hbg.id_h=:pId";
+		String req = "UPDATE Hebergement as hbg SET hbg.selectionhbg=:pSlcHbg WHERE hbg.id_h=:pId";
 		Query q = em.createQuery(req);
+		q.setParameter("pSlcHbg", hbg.getSelectionhbg());
 		q.setParameter("pId", hbg.getId_h());
 		long verif = q.executeUpdate();
 
@@ -43,7 +44,7 @@ public class HerbergementDaoImpl implements IHebergementDao {
 
 	@Override
 	public long deletehebergement(long id_h) {
-		String req = "DELETE FROM Hergement as hbg WHERE hbg.id_h=:pId";
+		String req = "DELETE FROM Hebergement as hbg WHERE hbg.id_h=:pId";
 		Query q = em.createQuery(req);
 		q.setParameter("pId", id_h);
 		long verif = q.executeUpdate();

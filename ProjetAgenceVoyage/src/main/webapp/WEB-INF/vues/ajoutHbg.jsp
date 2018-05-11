@@ -9,21 +9,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter un hebergement</title>
 
-<link rel="stylesheet"
-	href="<c:url value='/resources/CSS/bootstrap.css'/>" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 </head>
 <body>
+
+	<%@ include file="/resources/template/headerHebergementConseiller.html"%>
+
+
 	<form:form cssClass="form-horizontal" method="POST"
 		action="soumettreForm" modelAttribute="hbgAjout">
-		<div class="form-group">
-			<label for="sel1">Prestation d'hebergement:</label> 
-			<form:select path="selectionhbg" class="form-control" id="sel1">
-				<option value="Herbergement">Herbergement</option>
-				<option value="Petit Dejeuner">Petit Dejeuner</option>
-				<option value="Demi-pension">Demi-pension</option>
-				<option value="Demi-pension et pension complete">Demi-pension et pension complete</option>
-			</form:select>
-		</div>
+	
+	<div class="form-group">
+
+    <form:label cssClass="col-sm-2 control-label" path="selectionhbg">Selectionner un type d'hebergement</form:label>
+    <div class="col-sm-6">
+      <form:input type="text" cssClass="form-control" placeholder="SelectionnHbg" path="selectionhbg"/>
+    </div>
+  </div>
+	
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default">Ajouter</button>

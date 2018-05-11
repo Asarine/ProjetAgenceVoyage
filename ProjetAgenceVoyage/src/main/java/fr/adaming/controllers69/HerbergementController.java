@@ -53,9 +53,9 @@ public class HerbergementController {
 			Hebergement hbgOut = hbgService.addhebergement(hbg);
 			if (hbgOut.getId_h() != 0) {
 				
-				return "redirect:hebergement";
+				return "redirect:listehbg";
 			} else {
-				return "redirect:ajoutHbg";
+				return "redirect:Ajouthbg";
 			}
 		}
 
@@ -63,7 +63,7 @@ public class HerbergementController {
 		// Méthode pour afficher le formulaire de modification
 		@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
 		public ModelAndView afficheFormModif() {
-			return new ModelAndView("modifhbg", "hbgModif", new Hebergement());
+			return new ModelAndView("modifHbg", "hbgModif", new Hebergement());
 		}
 
 		@RequestMapping(value = "/soumettreModif", method = RequestMethod.POST)
@@ -71,7 +71,7 @@ public class HerbergementController {
 			// Appel de la méthode service
 			long hbgOut = hbgService.updatehebergement(hbg);
 			if (hbgOut != 0) {
-				return "redirect:hebergement";
+				return "redirect:listehbg";
 			} else {
 				return "redirect:afficheModif";
 			}
@@ -93,7 +93,7 @@ public class HerbergementController {
 			// Appel de la méthode service
 			hbgService.deletehebergement(hbg.getId_h());
 			if (hbg.getId_h() != 0) {
-				return "redirect:herbergement";
+				return "redirect:listehbg";
 			} else {
 				return "redirect:afficheSupp";
 			}
@@ -104,7 +104,7 @@ public class HerbergementController {
 		@RequestMapping(value = "/afficheRech", method = RequestMethod.GET)
 		public String afficheFormRecherche(Model modele) {
 			modele.addAttribute("hbgRech", new Hebergement());
-			return "recherche";
+			return "rechhbg";
 		}
 
 		@RequestMapping(value = "/soumettreRech", method = RequestMethod.POST)

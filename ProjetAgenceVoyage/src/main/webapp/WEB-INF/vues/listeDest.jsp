@@ -28,12 +28,14 @@
 			<th>id</th>
 			<th>Continent</th>
 			<th>Pays</th>
+			<th>Operation</th>
 		</tr>
 		<c:forEach var="ds" items="${listeDestinations}">
 			<tr>
 			<td>${ds.id}</td>
 			<td>${ds.continent}</td>
 			<td>${ds.pays}</td>
+			<td><a href="${pageContext.request.contextPath}/conseiller/dsCTRL/deleteLink/${ds.id}">Supprimer</a> | <a href="${pageContext.request.contextPath}/conseiller/dsCTRL/updateLink?pId=${ds.id}">Modifier</a></td>
 			
 		</tr>
 		</c:forEach>

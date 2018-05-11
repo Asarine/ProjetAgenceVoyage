@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="../css/bootstrap.css" />
+</head>
+<body>
+
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyageApres"><img src="src/main/webapp/resources/image/avion.jpg"/></a></div>
+
+
+ <h1 style="text-align:center"><b>Espace gestion des destinations</b></h1>
+<br/>
+
+<nav class="navbar  navbar-static-top">
+  
+   <ul class="nav nav-pills">
+<li role="presentation" style="background-color: aqua;"><a href="<c:url value='/conseiller/hbgCTRL/listehbg'/>"><b>Liste des types hebergements disponibles</b> </a></li>
+  <li role="presentation" style="background-color: lime;"><a href="<c:url value = '/conseiller/hbgCTRL/Ajouthbg' />"><b>Proposer un nouveau type d'hebergement</b></a></li>
+  <li role="presentation" style="background-color:yellow "><a href="<c:url value = '/conseiller/hbgCTRL/afficheModif' />"><b>modifier les modalites d'un hebergement</b> </a></li>
+  <li role="presentation" style="background-color:orange "><a href="<c:url value = '/conseiller/hbgCTRL/afficheRech' />"><b>rechercher un type d'hebergement dans la base de donnee</b></a></li>
+   <li role="presentation" style="background-color: #FF4500"><a href="<c:url value ='/conseiller/hbgCTRL/afficheSupp'/>"><b>supprimer un type d'hebergement de la base de donnee</b></a></li>   
+</ul>
+  
+</nav>
+
+<br/>
+<br/>
+
+</body>
+</html>
