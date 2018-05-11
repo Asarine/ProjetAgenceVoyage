@@ -45,6 +45,8 @@ public class Participant implements Serializable {
 	@JoinTable(name = "p_dos_jointure", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "dos_id"))
 	private List<Dossier> dossiers;
 	
+	
+	
 //	@JoinColumn(name = "p_id", referencedColumnName = "id_p")
 	
 	public Client getClient() {
@@ -53,6 +55,14 @@ public class Participant implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	
+	public List<Dossier> getDossiers() {
+		return dossiers;
+	}
+
+	public void setDossiers(List<Dossier> dossiers) {
+		this.dossiers = dossiers;
 	}
 
 	// Constructeurs

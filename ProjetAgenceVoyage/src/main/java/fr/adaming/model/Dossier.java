@@ -39,17 +39,25 @@ public class Dossier implements Serializable {
 	// @JoinTable(name="cl_dos_jointure",
 	// joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="cl_id"))
 
-//	@JoinTable(name = "p_dos_jointure", joinColumns = @JoinColumn(name = "dos_id"), inverseJoinColumns = @JoinColumn(name = "p_id"))
-	@ManyToMany(mappedBy="dossiers")
+	// @JoinTable(name = "p_dos_jointure", joinColumns = @JoinColumn(name =
+	// "dos_id"), inverseJoinColumns = @JoinColumn(name = "p_id"))
+	@ManyToMany(mappedBy = "dossiers")
 	private List<Participant> participantsDos;
-	
+
 	// @ManyToMany(mappedBy="voyagesDos")
 	// private List<Dossier> listeDossier;
-	
 
 	@ManyToOne
 	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
 	private List<Voyage> voyagesDos;
+
+	public List<Participant> getParticipantsDos() {
+		return participantsDos;
+	}
+
+	public void setParticipantsDos(List<Participant> participantsDos) {
+		this.participantsDos = participantsDos;
+	}
 
 	// Constructeurs
 	public Dossier() {
