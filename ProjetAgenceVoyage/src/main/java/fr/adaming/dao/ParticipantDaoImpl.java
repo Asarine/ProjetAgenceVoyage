@@ -98,4 +98,20 @@ public class ParticipantDaoImpl implements IParticipantDao {
 		List<Participant> listeOut = query.getResultList();
 		return listeOut;
 	}
+
+	@Override
+	public List<Participant> getParticipantByClient(Long id) {
+		// Requete JPQL
+		String req = "SELECT par FROM Participant par WHERE par.client.id = :pId";
+		
+		// Objet pour envoyer la requete
+		Query query = em.createQuery(req);
+		
+		// passage des parametres :
+		query.setParameter("pId", id);
+		
+		// Envoyer la requete
+		List<Participant> listeOut = query.getResultList();
+		return listeOut;
+	}
 }

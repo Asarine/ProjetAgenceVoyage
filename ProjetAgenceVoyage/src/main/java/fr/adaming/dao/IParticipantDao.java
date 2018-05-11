@@ -14,4 +14,6 @@ public interface IParticipantDao {
 	public Participant searchParticipant(Long id);
 
 	public List<Participant> getAllParticipant();
+	
+	public List<Participant> getParticipantByClient(Long id);
 }
