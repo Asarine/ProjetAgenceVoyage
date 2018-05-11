@@ -18,12 +18,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="voyages")
+@Table(name = "voyages")
 public class Voyage implements Serializable {
-	
-	//déclaration des attributs :
+
+	// déclaration des attributs :
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_v;
 	@Temporal(TemporalType.DATE)
 	private Date dateD;
@@ -32,38 +32,43 @@ public class Voyage implements Serializable {
 	private int nbPlaces;
 	private int tarif;
 	private String disponibilite;
-	
-	//transformation des associations uml en java :
-	
-	  //avec hebergement :
+
+	// transformation des associations uml en java :
+
+	// avec hebergement :
 	@ManyToOne
-	@JoinColumn(name="h_id", referencedColumnName="id_h")
+	@JoinColumn(name = "h_id", referencedColumnName = "id_h")
 	private Hebergement hebergement;
-	
-	  //avec destination :
+
+	// avec destination :
 	@ManyToOne
-	@JoinColumn(name="d_id", referencedColumnName="id_d")
+	@JoinColumn(name = "d_id", referencedColumnName = "id_d")
 	private Destination destination;
-	  
-	 //avec formule :
+
+	// avec formule :
 	@ManyToOne
-	@JoinColumn(name="f_id", referencedColumnName="id_f")
+	@JoinColumn(name = "f_id", referencedColumnName = "id_f")
 	private Formule formule;
-	
-	@OneToMany(mappedBy="voyage")
+
+	@OneToMany(mappedBy = "voyage")
 	private List<Image> listeImages;
+
+	/*
+	 * @OneToMany(mappedBy="voyage") private List<Client> client;
+	 */
+
+	// @ManyToMany(mappedBy="voyagesDos")
+	// private List<Dossier> listeDossier;
 	
-	/*@OneToMany(mappedBy="voyage")
-	private List<Client> client;  */
-	
-	@ManyToMany(mappedBy="voyagesDos")
+	@OneToMany(mappedBy = "voyagesDos")
 	private List<Dossier> listeDossier;
-	
-	//les constructeurs :
+
+	// les constructeurs :
 
 	public Voyage() {
 		super();
 	}
+
 	public Voyage(Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite) {
 		super();
 		this.dateD = dateD;
@@ -72,6 +77,7 @@ public class Voyage implements Serializable {
 		this.tarif = tarif;
 		this.disponibilite = disponibilite;
 	}
+
 	public Voyage(long id_v, Date dateD, Date dateR, int nbPlaces, int tarif, String disponibilite) {
 		super();
 		this.id_v = id_v;
@@ -81,99 +87,106 @@ public class Voyage implements Serializable {
 		this.tarif = tarif;
 		this.disponibilite = disponibilite;
 	}
-	
-	
-	
-	//les getters et les setters :
+
+	// les getters et les setters :
 
 	public long getId_v() {
 		return id_v;
 	}
+
 	public Hebergement getHebergement() {
 		return hebergement;
 	}
+
 	public void setHebergement(Hebergement hebergement) {
 		this.hebergement = hebergement;
 	}
+
 	public Destination getDestination() {
 		return destination;
 	}
+
 	public void setDestination(Destination destination) {
 		this.destination = destination;
 	}
+
 	public Formule getFormule() {
 		return formule;
 	}
+
 	public void setFormule(Formule formule) {
 		this.formule = formule;
 	}
+
 	public List<Image> getListeImages() {
 		return listeImages;
 	}
+
 	public void setListeImages(List<Image> listeImages) {
 		this.listeImages = listeImages;
 	}
-	/*public List<Client> getClient() {
-		return client;
-	}
-	public void setClient(List<Client> client) {
-		this.client = client;
-	}*/
+
+	/*
+	 * public List<Client> getClient() { return client; } public void
+	 * setClient(List<Client> client) { this.client = client; }
+	 */
 	public void setId_v(long id_v) {
 		this.id_v = id_v;
 	}
+
 	public Date getDateD() {
 		return dateD;
 	}
+
 	public void setDateD(Date dateD) {
 		this.dateD = dateD;
 	}
+
 	public Date getDateR() {
 		return dateR;
 	}
+
 	public void setDateR(Date dateR) {
 		this.dateR = dateR;
 	}
+
 	public int getNbPlaces() {
 		return nbPlaces;
 	}
+
 	public void setNbPlaces(int nbPlaces) {
 		this.nbPlaces = nbPlaces;
 	}
+
 	public int getTarif() {
 		return tarif;
 	}
+
 	public void setTarif(int tarif) {
 		this.tarif = tarif;
 	}
+
 	public String getDisponibilite() {
 		return disponibilite;
 	}
+
 	public void setDisponibilite(String disponibilite) {
 		this.disponibilite = disponibilite;
 	}
-	
-	
+
 	public List<Dossier> getListeDossier() {
 		return listeDossier;
 	}
+
 	public void setListeDossier(List<Dossier> listeDossier) {
 		this.listeDossier = listeDossier;
 	}
-	//méthodes toString sans les attributs d'associations:
+
+	// méthodes toString sans les attributs d'associations:
 	@Override
 	public String toString() {
 		return "Voyage [id_v=" + id_v + ", dateD=" + dateD + ", dateR=" + dateR + ", nbPlaces=" + nbPlaces + ", tarif="
 				+ tarif + ", disponibilite=" + disponibilite + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

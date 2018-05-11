@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -37,7 +40,13 @@ public class Participant implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
 	private Client client;
-
+	
+	@ManyToMany
+	@JoinTable(name = "p_dos_jointure", joinColumns = @JoinColumn(name = "p_id"), inverseJoinColumns = @JoinColumn(name = "dos_id"))
+	private List<Dossier> dossiers;
+	
+//	@JoinColumn(name = "p_id", referencedColumnName = "id_p")
+	
 	public Client getClient() {
 		return client;
 	}

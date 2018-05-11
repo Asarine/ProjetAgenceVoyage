@@ -21,21 +21,34 @@ public class Dossier implements Serializable {
 	// Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_dos")
+	@Column(name = "id_dos")
 	private long id;
 	private String statutdossier;
 	@Column(columnDefinition = "TINYINT(1)")
 	private boolean assurance;
 	private double prixTotal;
-	
+
 	// Transformation de l'association UML en JAVA
 	@ManyToOne()
 	@JoinColumn(name = "cl_id", referencedColumnName = "id_cl")
 	private Client clientDos;
-//	@JoinTable(name="voy_dos_jointure", joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="voy_id"))
+	// @JoinTable(name="voy_dos_jointure",
+	// joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="voy_id"))
+
+	// @ManyToMany
+	// @JoinTable(name="cl_dos_jointure",
+	// joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="cl_id"))
+
+//	@JoinTable(name = "p_dos_jointure", joinColumns = @JoinColumn(name = "dos_id"), inverseJoinColumns = @JoinColumn(name = "p_id"))
+	@ManyToMany(mappedBy="dossiers")
+	private List<Participant> participantsDos;
 	
-	@ManyToMany
-	@JoinTable(name="cl_dos_jointure", joinColumns=@JoinColumn(name="dos_id"),inverseJoinColumns=@JoinColumn(name="cl_id"))
+	// @ManyToMany(mappedBy="voyagesDos")
+	// private List<Dossier> listeDossier;
+	
+
+	@ManyToOne
+	@JoinColumn(name = "v_id", referencedColumnName = "id_v")
 	private List<Voyage> voyagesDos;
 
 	// Constructeurs
@@ -43,11 +56,11 @@ public class Dossier implements Serializable {
 		super();
 	}
 
-	public Dossier(String statutdossier, boolean assurance,double prixTotal) {
+	public Dossier(String statutdossier, boolean assurance, double prixTotal) {
 		super();
 		this.statutdossier = statutdossier;
 		this.assurance = assurance;
-		this.prixTotal=prixTotal;
+		this.prixTotal = prixTotal;
 	}
 
 	public Dossier(long id, String statutdossier, boolean assurance, double prixTotal) {
@@ -55,10 +68,10 @@ public class Dossier implements Serializable {
 		this.id = id;
 		this.statutdossier = statutdossier;
 		this.assurance = assurance;
-		this.prixTotal=prixTotal;
+		this.prixTotal = prixTotal;
 	}
 
-	//G+S
+	// G+S
 	public long getId() {
 		return id;
 	}
@@ -75,7 +88,6 @@ public class Dossier implements Serializable {
 		this.statutdossier = statutdossier;
 	}
 
-	
 	public boolean isAssurance() {
 		return assurance;
 	}
@@ -83,8 +95,6 @@ public class Dossier implements Serializable {
 	public void setAssurance(boolean assurance) {
 		this.assurance = assurance;
 	}
-	
-	
 
 	public double getPrixTotal() {
 		return prixTotal;
@@ -109,8 +119,5 @@ public class Dossier implements Serializable {
 	public void setVoyagesDos(List<Voyage> voyagesDos) {
 		this.voyagesDos = voyagesDos;
 	}
-	
-	
-	
 
 }
