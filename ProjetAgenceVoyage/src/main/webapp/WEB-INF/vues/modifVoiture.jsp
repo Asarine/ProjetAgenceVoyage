@@ -7,14 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.css'/>" />
-<script src="<c:url value='/resources/js/bootstrap.js'/>"
-	type="text/javascript"></script>
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 <title>Modifier Voiture</title>
 </head>
 <body>
+<%@ include file="/resources/template/headerVoitureConseiller.html"%>
+<br/>
+
 	<h1 style="color: crimson; text-align: center">Modifier une voiture</h1>
 	<br/>
 	<form:form cssClass="form-horizontal" method="POST"
