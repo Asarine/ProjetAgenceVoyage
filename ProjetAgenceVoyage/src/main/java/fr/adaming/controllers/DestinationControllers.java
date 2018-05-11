@@ -20,7 +20,7 @@ import fr.adaming.model.Destination;
 import fr.adaming.service.IDestinationService;
 
 @Controller
-@RequestMapping("/dsCTRL")
+@RequestMapping("/conseiller/dsCTRL")
 @Scope("session")
 public class DestinationControllers {
 	

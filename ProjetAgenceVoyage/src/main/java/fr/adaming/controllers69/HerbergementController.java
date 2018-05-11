@@ -18,7 +18,7 @@ import fr.adaming.model.Hebergement;
 import fr.adaming.service.IHebergementService;
 
 @Controller
-@RequestMapping("/hbgCTRL")
+@RequestMapping("/conseiller/hbgCTRL")
 public class HerbergementController {
 	
 
