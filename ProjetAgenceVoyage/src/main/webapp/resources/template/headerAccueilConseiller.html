@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="../css/bootstrap.css" />
+</head>
+<body>
+
+
+ <h1 style="text-align:center"><b>Bienvenue dans l'espace conseiller</b></h1>
+ <br/>
+
+
+<div class="container pull-left" style="align:left">
+ 
+  <ul class="nav nav-pills nav-stacked" >
+ 
+    <li class="col-sm-4 dropdown" style="background-color: aqua">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="<c:url value='/conseiller/vCTRL/listeVoyageApres'/>"><b>Acceder a la gestion des voyages disponibles</b><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="<c:url value='/conseiller/vCTRL/listeVoyageApres'/>">Liste des voyages disponibles</a></li>
+      <li><a href="<c:url value='/conseiller/vCTRL/afficheAjoutVoyage'/>">ajouter un nouveau voyage </a></li>
+       <li><a href="<c:url value='/conseiller/vCTRL/afficheModifVoyage'/>">modifier les modalites d'un voyage </a></li>
+       <li><a href="<c:url value='/conseiller/vCTRL/afficheRechVoyage'/>">rechercher un voyage a la liste</a></li>
+       <li><a href="<c:url value='/conseiller/vCTRL/afficheSupprVoyage'/>">supprimer un voyage de la liste</a></li>
+       <li><a href="<c:url value='/conseiller/fCTRL/listeFormule'/>">Accéder à la gestion des formules</a></li>
+       <li><a href="<c:url value='/dsCTRL/listeDest'/>">Accéder à la gestion des destinations</a></li>
+       <li><a href="<c:url value='/hbgCTR/listehbg'/>">Accéder à la gestion des hebergements</a></li>                     
+      </ul>
+    </li>
+    
+    <li class="col-sm-4 dropdown" style="background-color: lime" >
+      <a class="dropdown-toggle" data-toggle="dropdown" href="<c:url value = '/conseiller/clCTRL/listeClient' />"><b>Acceder a la gestion des participants</b> <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+     <li><a href="<c:url value='/conseiller/pCTRL/liste'/>">Listes des participants enregistrés</a></li>
+      <li><a href="<c:url value = '/conseiller/pCTRL/afficheAjout' />">ajouter un nouveau participant a la liste </a></li>
+       <li><a href="<c:url value = '/conseiller/pCTRL/afficheModif' />">modifier les modalites d'un participant</a></li>
+       <li><a href="<c:url value = '/conseiller/pCTRL/afficheSearch' />">rechercher un participant a la base de donnee</a></li>
+       <li><a href="<c:url value = '/conseiller/pCTRL/afficheDelete' />">supprimer un participant de la base de donnee</a></li>                      
+      </ul>
+    </li>
+   
+   
+   <li class="col-sm-4 dropdown" style="background-color: yellow">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="<c:url value='/conseiller/pCTRL/liste'/>"><b>Acceder a la gestion des clients</b> <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+     <li><a href="<c:url value = '/conseiller/clCTRL/listeClient' />">Liste des clients enregistrés</a></li>
+      <li><a href="<c:url value = '/conseiller/clCTRL/formAjout' />">ajouter un nouveau client a la liste </a></li>
+       <li><a href="<c:url value = '/conseiller/clCTRL/formModif' />">modifier les modalites d'un client</a></li>
+       <li><a href="<c:url value = '/conseiller/clCTRL/formRech' />">rechercher un client a la base de donnee</a></li>
+       <li><a href="<c:url value = '/conseiller/clCTRL/formSupp' />">supprimer un client de la base de donnee</a></li>
+                          
+      </ul>
+    </li>
+   
+  </ul>
+</div>
+
+
+
+<div class="btn-group pull-right" role="group" aria-label="..." style="text-align: right">
+	<a href="<c:url value='/conseiller/accueil'/>">Aller sur la pages des enquetes </a>
+
+ <a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a>
+	
+</div>
+
+<br/>
+<br/>
+<br/>
+
+
+</body>
+</html>

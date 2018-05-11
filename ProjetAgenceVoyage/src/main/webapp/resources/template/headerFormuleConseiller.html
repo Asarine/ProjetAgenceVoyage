@@ -1,0 +1,40 @@
+headerFormuleConseiller :
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="../css/bootstrap.css" />
+</head>
+<body>
+
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyageApres"><img src="src/main/webapp/resources/image/avion.jpg"/></a></div>
+
+
+ <h1 style="text-align:center"><b>Espace gestion des formules</b></h1>
+<br/>
+
+<nav class="navbar  navbar-static-top">
+  
+   <ul class="nav nav-pills">
+<li role="presentation" style="background-color: aqua;"><a href="<c:url value='/conseiller/fCTRL/listeFormule'/>"><b>Liste des formules diponibles</b> </a></li>
+  <li role="presentation" style="background-color: lime;"><a href="<c:url value='/conseiller/fCTRL/afficheAjoutFormule'/>"><b>Proposer une nouvelle formule</b></a></li>
+  <li role="presentation" style="background-color:yellow "><a href="<c:url value='/conseiller/fCTRL/afficheModifFormule'/>"><b>modifier les modalites d'une formule</b> </a></li>
+  <li role="presentation" style="background-color:orange "><a href="<c:url value='/conseiller/fCTRL/afficheRechFormule'/>"><b>rechercher une formule dans la liste</b></a></li>
+   <li role="presentation" style="background-color: #FF4500"><a href="<c:url value='/conseiller/fCTRL/afficheSupprFormule'/>"><b>supprimer un formule existante</b></a></li>
+      <li role="presentation" style="background-color:  #F4A460"><a href="<c:url value='/voiture/listeVoitures'/>"><b>Accéder à la gestion des voitures de location</b></a></li>
+   
+</ul>
+  
+</nav>
+
+<br/>
+<br/>
+
+
+</body>
+</html>

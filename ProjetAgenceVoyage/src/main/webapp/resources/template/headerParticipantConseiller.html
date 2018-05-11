@@ -1,0 +1,36 @@
+headerParticipantConseiller :
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="../css/bootstrap.css" />
+</head>
+<body>
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyage"><img src="src/main/webapp/resources/image/maison.jpg"/></a></div>
+
+
+ <h1 style="text-align:center"><b>Espace gestion des participants</b></h1>
+<br/>
+
+<nav class="navbar  navbar-static-top">
+  
+   <ul class="nav nav-pills">
+<li role="presentation" style="background-color: aqua;"><a href="<c:url value='/conseiller/pCTRL/liste'/>"><b>Listes des participants enregistrés</b> </a></li>
+  <li role="presentation" style="background-color: lime;"><a href="<c:url value = '/conseiller/pCTRL/afficheAjout' />"><b>ajouter un nouveau participant a la liste</b></a></li>
+  <li role="presentation" style="background-color:yellow "><a href="<c:url value = '/conseiller/pCTRL/afficheModif' />"><b>modifier les modalites d'un participant</b> </a></li>
+  <li role="presentation" style="background-color:orange "><a href="<c:url value = '/conseiller/pCTRL/afficheSearch' />"><b>rechercher un participant a la base de donnee</b></a></li>
+   <li role="presentation" style="background-color: #FF4500"><a href="<c:url value = '/conseiller/pCTRL/afficheDelete' />"><b>supprimer un participant de la base de donnee</b></a></li>
+</ul>
+  
+</nav>
+
+<br/>
+<br/>
+
+</body>
+</html>

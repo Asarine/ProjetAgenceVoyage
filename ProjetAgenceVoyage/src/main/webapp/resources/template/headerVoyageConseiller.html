@@ -1,0 +1,49 @@
+
+headerVoyageConseiller :
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="../css/bootstrap.css" />
+
+
+</head>
+<body>
+
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyage"><img src="src/main/webapp/resources/image/maison.jpg" width: 50px;
+	height: 50px;/></a></div>
+
+ <h1 style="text-align:center"><b>Espace gestion des voyages</b></h1>
+<br/>
+
+<nav class="navbar  navbar-static-top">
+  
+   <ul class="nav nav-pills">
+<li role="presentation" style="background-color: aqua;"><a href="<c:url value='/conseiller/vCTRL/listeVoyageApres'/>"><b>Liste des voyages disponibles</b> </a></li>
+  <li role="presentation" style="background-color: lime;"><a href="<c:url value='/conseiller/vCTRL/afficheAjoutVoyage'/>"><b>ajouter un nouveau voyage</b></a></li>
+  <li role="presentation" style="background-color:yellow "><a href="<c:url value='/conseiller/vCTRL/afficheModifVoyage'/>"><b>modifier les modalites d'un voyage</b> </a></li>
+  <li role="presentation" style="background-color:orange "><a href="<c:url value='/conseiller/vCTRL/afficheRechVoyage'/>"><b>rechercher un voyage a la liste</b></a></li>
+   <li role="presentation" style="background-color: #FF4500"><a href="<c:url value='/conseiller/vCTRL/afficheSupprVoyage'/>"><b>supprimer un voyage de la liste</b></a></li>
+   <li class="col-sm-4 dropdown" style="background-color: #F4A460">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="<c:url value='/conseiller/vCTRL/listeVoyageApres'/>"><b>Acceder a la gestion des voyages disponibles</b><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="<c:url value='/conseiller/fCTRL/listeFormule'/>">Accéder à la gestion des formules</a></li>
+       <li><a href="<c:url value='/dsCTRL/listeDest'/>">Accéder à la gestion des destinations</a></li>
+       <li><a href="<c:url value='/hbgCTR/listehbg'/>">Accéder à la gestion des hebergements</a></li>                     
+      </ul>
+    </li>
+</ul>
+  
+</nav>
+
+<br/>
+<br/>
+
+</body>
+</html>
