@@ -10,15 +10,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Supprimer</title>
 
-<link rel="stylesheet"
-	href="<c:url value = '/resources/CSS/bootstrap.css' />" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap.css'/>" />
 
 </head>
 <body>
 
-<%@ include file="/resources/template/header.html" %>
 
-	<hr />
+<%@ include file="/resources/template/headerParticipantConseiller.html"%>
+
+
 	<br />
 	<h1 style="color: red; text-align: center">Supprimer des participants</h1>
 

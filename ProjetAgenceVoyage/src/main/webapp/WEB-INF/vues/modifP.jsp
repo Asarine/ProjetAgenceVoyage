@@ -10,12 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modifier</title>
 
-<link rel="stylesheet"
-	href="<c:url value = '/resources/CSS/bootstrap.css' />" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 
 </head>
 <body>
-	<%@ include file="/resources/template/header.html"%>
+<%@ include file="/resources/template/headerParticipantConseiller.html"%>
 
 	<hr />
 	<br />
@@ -56,7 +58,7 @@
 		<br />
 
 		<div class="form-group">
-			<form:label path="prenom" cssClass="col-sm-2 control-label">Prénom</form:label>
+			<form:label path="prenom" cssClass="col-sm-2 control-label">Prenom</form:label>
 			<div class="col-sm-4">
 				<form:input path="prenom" cssClass="form-control"
 					placeholder="Prénom" />

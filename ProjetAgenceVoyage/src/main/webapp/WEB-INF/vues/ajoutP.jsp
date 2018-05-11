@@ -10,15 +10,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter</title>
 
-<link rel="stylesheet"
-	href="<c:url value = '/resources/CSS/bootstrap.css' />" />
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 
 </head>
 <body>
-	<%@ include file="/resources/template/header.html"%>
+
+<%@ include file="/resources/template/headerParticipantConseiller.html"%>
 
 
-	<hr />
 	<br />
 	<h1 style="color: red; text-align: center">Ajouter des
 		participants</h1>
@@ -29,7 +31,7 @@
 		<div class="form-group">
 			<form:label path="civilite" cssClass="col-sm-2 control-label">Civilité</form:label>
 			<div class="col-sm-4">
-				<form:select class="form-control" path="civilite">
+				<form:select class="form-control" path="civilite" name="pCivilite">
 					<option value="M.">M.</option>
 					<option value="Mme">Mme</option>
 				</form:select>
