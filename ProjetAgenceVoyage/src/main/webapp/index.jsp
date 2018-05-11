@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%response.sendRedirect("conseiller/clCTRL/listeClient"); %>
+<%response.sendRedirect("client/clCTRL/listeClient"); %>
 
 </body>
 </html>
