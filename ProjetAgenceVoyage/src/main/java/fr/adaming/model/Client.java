@@ -49,9 +49,9 @@ public class Client implements Serializable {
 
 	@OneToMany(mappedBy = "client")
 	private List<Participant> listeParticipant;
-	
+
 	@OneToOne
-	@JoinColumn(name="dos_id", referencedColumnName="id_dos")
+	@JoinColumn(name = "dos_id", referencedColumnName = "id_dos")
 	private Dossier dossier;
 
 	public Client() {
@@ -179,6 +179,22 @@ public class Client implements Serializable {
 
 	public void setListeService(List<Service> listeService) {
 		this.listeService = listeService;
+	}
+
+	public List<Participant> getListeParticipant() {
+		return listeParticipant;
+	}
+
+	public void setListeParticipant(List<Participant> listeParticipant) {
+		this.listeParticipant = listeParticipant;
+	}
+
+	public Dossier getDossier() {
+		return dossier;
+	}
+
+	public void setDossier(Dossier dossier) {
+		this.dossier = dossier;
 	}
 
 	@Override
