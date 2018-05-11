@@ -84,6 +84,16 @@ public class Destination implements Serializable {
 	public void setPays(String pays) {
 		this.pays = pays;
 	}
+	
+	
+
+	public List<Image> getListeImage() {
+		return listeImage;
+	}
+
+	public void setListeImage(List<Image> listeImage) {
+		this.listeImage = listeImage;
+	}
 
 	@Override
 	public String toString() {
