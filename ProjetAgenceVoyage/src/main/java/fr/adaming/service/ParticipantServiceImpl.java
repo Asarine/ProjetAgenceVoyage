@@ -46,7 +46,10 @@ public class ParticipantServiceImpl implements IParticipantService {
 		// TODO Auto-generated method stub
 		return partiDao.getAllParticipant();
 	}
-	
-	
 
+	@Override
+	public List<Participant> getParticipantByClient(Long id) {
+		return partiDao.getParticipantByClient(id);
+	}
+	
 }

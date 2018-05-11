@@ -13,5 +13,7 @@ public interface IParticipantService {
 
 	public Participant searchParticipant(Long id);
 
-	public List<Participant> getAllParticipant();
+	public List<Participant> getAllParticipant();	
+	
+	public List<Participant> getParticipantByClient(Long id);
 }
