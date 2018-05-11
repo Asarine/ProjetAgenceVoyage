@@ -51,7 +51,7 @@ public class VoyageDaoImpl implements IVoyageDao {
 		// requete jpql :
 		String req ="update Voyage as v set v.dateD=:pDateD , v.dateR=:pDateR,"
 				+ "v.nbPlaces=:pNbPlaces, v.tarif=:pTarif,"
-				+ "v.disponibilite=:pDisponibilite, v.assurance=:pAssurance,"
+				+ "v.disponibilite=:pDisponibilite,"
 				+ "v.hebergement.id_h=:pHebergementId,"
 				+ "v.destination.id=:pDestinationId,"
 				+ "v.formule.id_f=:pFormuleId where v.id_v=:pId";

@@ -9,7 +9,10 @@
 <title>Accueil</title>
 </head>
 <body>
-	<h1>${message}</h1>
+<div align="right"><a href="http://localhost:8080/ProjetAgenceVoyage/conseiller/vCTRL/listeVoyage"><img src="src/main/webapp/resources/image/maison.jpg"/></a></div>
+
+<h1 style="text-align: : center;">Enquêtes et études de satisfactions clients</h1>
+
 
 	<a href="<c:url value='/j_spring_security_logout'/>">Se déconnecter</a>
 	<a href="<c:url value='/voiture/listeVoitures'/>">Afficher les
