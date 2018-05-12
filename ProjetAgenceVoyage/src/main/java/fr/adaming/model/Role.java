@@ -25,6 +25,10 @@ public class Role implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="co_id", referencedColumnName="id_co")
 	private Conseiller conseiller;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="cl_id", referencedColumnName="id_cl")
+//	private Client client;
 	
 	// Constructeurs
 	

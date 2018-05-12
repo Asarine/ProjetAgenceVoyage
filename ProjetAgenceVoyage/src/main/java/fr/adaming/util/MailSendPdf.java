@@ -1,5 +1,10 @@
 package fr.adaming.util;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Properties;
 
@@ -18,16 +23,29 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.CMYKColor;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 import fr.adaming.model.Dossier;
+import fr.adaming.model.Formule;
+import fr.adaming.model.Hebergement;
 import fr.adaming.model.Participant;
+import fr.adaming.model.Voiture;
 import fr.adaming.model.Voyage;
 
 public class MailSendPdf {
 
-	public String getFile(Voyage voyage) {
-		Long id = voyage.getId_v();
+	public String getFile(Dossier dossier) {
+		Long id = dossier.getId();
 		StringBuilder sOut = new StringBuilder();
 		String input = System.getProperty("user.home");
 		for (int i = 0; i < input.length(); i++) {
@@ -45,18 +63,115 @@ public class MailSendPdf {
 		return path;
 	}
 
+	public String getQR() {
+		StringBuilder sOut = new StringBuilder();
+		String input = System.getProperty("user.home");
+		for (int i = 0; i < input.length(); i++) {
+			if (i > 0 && input.charAt(i) == '\\') {
+
+				sOut.append("\\");
+			}
+			sOut.append(input.charAt(i));
+		}
+
+		sOut.append("\\\\ProjetAgenceVoyage\\\\src\\\\main\\\\webapp\\\\resources\\\\image\\\\static_qr_code.jpg");
+
+		String path = sOut.toString();
+		System.out.println(path);
+		return path;
+	}
+
+	public void genererPDF(Dossier dossier) {
+		try {
+			Client cl = dossier.getClientDos();
+			List<Participant> listeP = dossier.getParticipantsDos();
+			Voyage voyage = dossier.getVoyageDos();
+			Formule form = voyage.getFormule();
+
+			Document document = new Document(PageSize.A4, 75, 75, 75, 75);
+
+			String path = getFile(dossier);
+
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(path));
+
+			Paragraph titre = new Paragraph("BoVoyage : Récapitulatif du dossier n°" + dossier.getId() + "\n",
+					FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, Font.UNDERLINE,
+							new CMYKColor(54, 255, 201, 0)));
+			titre.setSpacingAfter(20);
+			document.add(titre);
+
+			Paragraph parag1 = new Paragraph(
+					"Destination : " + voyage.getDestination().getPays() + "\nDépart : " + voyage.getDateD()
+							+ "\nRetour : " + voyage.getDateR(),
+					FontFactory.getFont(FontFactory.HELVETICA_OBLIQUE, 15));
+			parag1.setSpacingAfter(20);
+			document.add(parag1);
+
+			String partie2 = "Formule : ";
+			String sep = "";
+			String partie3 = "";
+			int verif = 0;
+
+			if (form.isAvion()) {
+				partie2 = partie2 + "avion ";
+				verif++;
+				sep = ", ";
+			}
+
+			if (form.isVoiture()) {
+				partie2 = partie2 + sep + "voiture";
+
+				Voiture voiture = form.getVoitureLouer();
+
+				partie3 = "\n\nVOITURE Catégorie " + voiture.getCategorie() + " - Loueur " + voiture.getLoueur();
+
+				verif++;
+				sep = ", ";
+			}
+
+			if (form.isHotel()) {
+				partie2 = partie2 + sep + "hotel ";
+				Hebergement heb = voyage.getHebergement();
+
+				partie3 = partie3 + "\n\n Mode d'hébergement  " + heb.getSelectionhbg();
+			}
+
+			Paragraph parag2 = new Paragraph(partie2 + partie3, FontFactory.getFont(FontFactory.HELVETICA_OBLIQUE, 15));
+			parag2.setSpacingAfter(20);
+			document.add(parag2);
+
+			// TODO inserer image
+			Image img = Image.getInstance(getQR());
+
+			document.add(img);
+
+			document.close();
+
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	public void sendMail2Conseiller(Dossier dossier) {
 		Client cl = dossier.getClientDos();
 		List<Participant> listeP = dossier.getParticipantsDos();
 		Voyage voyage = dossier.getVoyageDos();
-		
+
 		Conseiller c = cl.getConseiller();
 
 		// TODO Auto-generated method stub
 		final String username = "clear.skies928@gmail.com";
 		final String password = /*
 								 * Ne soyez pas trop curieux !
-								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/ "BubblyClouds8?";
+								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+								 */ "BubblyClouds8?";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -71,30 +186,32 @@ public class MailSendPdf {
 			}
 		});
 
-		String clientString = "Client <br/><th>ID</th><th>Nom</th><th>Prenom</th><th>Civilité</th><th>Tel</th><th>Date de naissance</th><th>Mail</th><th>Statut dossier</th><th>Numero compte bancaire</th>"
+		String clientString = "Client <br/><th>ID</th><th>Nom</th><th>Prenom</th><th>Civilité</th><th>Tel</th><th>Date de naissance</th><th>Mail</th><th>Statut dossier</th>"
 				+ "<td>" + cl.getId() + "</td><td>" + cl.getNom() + "</td><td>" + cl.getPrenom() + "</td><td>"
 				+ cl.getCivilite() + "</td><td>" + cl.getTel() + "</td><td>" + cl.getDn() + "</td><td>" + cl.getMail()
-//				+ "</td><td>" + cl.getStatutdossier() + "</td><td>" + cl.getNumcb() + "</td>"
-				;
+				+ "</td><td>" + dossier.getStatutdossier() + "</td>";
 
 		// TODO
-		String participantString = "Participants <br/><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th>";
+		String participantString = "";
+
+		if (dossier.getParticipantsDos().size() > 0) {
+			participantString = "Participants <br/><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th>";
+
+			for (Participant p : listeP) {
+				participantString = participantString + "<tr><td>" + p.getId() + "</td><td>" + p.getCivilite()
+						+ "</td><td>" + p.getNom() + "</td><td>" + p.getPrenom() + "</td><td>" + p.getTel()
+						+ "</td><td><fmt:formatDate pattern='dd/MM/yyyy' value=" + p.getDn() + " /></td><td>"
+						+ p.getMail() + "</td></tr>";
+			}
+		}
+
 		String voyageString = "Voyage <br/><tr><th>ID</th><th>Date depart</th><th>Date retour</th><th>Nombre de place</th><th>Tarif</th><th>Disponibilité</th><th>Assurance</th><th>Id de la destination</th><th>Pays de la destination</th><th>ID de l'hébergement</th><th>ID de la formule</th></tr>"
 				+ "<tr><td>" + voyage.getId_v() + "</td>" + "<td> <fmt:formatDate pattern='dd/MM/yyyy' value='"
 				+ voyage.getDateD() + "'/></td><td> <fmt:formatDate pattern='dd/MM/yyyy' value='" + voyage.getDateR()
 				+ "'/></td><td>" + voyage.getNbPlaces() + "</td><td>" + voyage.getTarif() + "</td><td>"
-				+ voyage.getDisponibilite() + "</td>"
-				 + "<td>" + dossier.getStatutdossier() + "</td>"
-				+ "<td>" + voyage.getDestination().getId() + "</td><td>" + voyage.getDestination().getPays()
-				+ "</td><td>" + voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f()
-				+ "</td></tr>";
-
-		for (Participant p : listeP) {
-			participantString = participantString + "<tr><td>" + p.getId() + "</td><td>" + p.getCivilite() + "</td><td>"
-					+ p.getNom() + "</td><td>" + p.getPrenom() + "</td><td>" + p.getTel()
-					+ "</td><td><fmt:formatDate pattern='dd/MM/yyyy' value='" + p.getDn() + "' /></td><td>"
-					+ p.getMail() + "</td></tr>";
-		}
+				+ voyage.getDisponibilite() + "</td>" + "<td>" + dossier.getStatutdossier() + "</td>" + "<td>"
+				+ voyage.getDestination().getId() + "</td><td>" + voyage.getDestination().getPays() + "</td><td>"
+				+ voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f() + "</td></tr>";
 
 		try {
 			// Create a default MimeMessage object.
@@ -142,14 +259,15 @@ public class MailSendPdf {
 		Client cl = dossier.getClientDos();
 		List<Participant> listeP = dossier.getParticipantsDos();
 		Voyage voyage = dossier.getVoyageDos();
-		
+
 		Conseiller c = cl.getConseiller();
 
 		// TODO Auto-generated method stub
 		final String username = "clear.skies928@gmail.com";
 		final String password = /*
 								 * Ne soyez pas trop curieux !
-								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/ "BubblyClouds8?";
+								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+								 */ "BubblyClouds8?";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -163,24 +281,7 @@ public class MailSendPdf {
 				return new PasswordAuthentication(username, password);
 			}
 		});
-
-		String clientString = "Client <br/><th>ID</th><th>Nom</th><th>Prenom</th><th>Civilité</th><th>Tel</th><th>Date de naissance</th><th>Mail</th><th>Statut dossier</th><th>Numero compte bancaire</th>"
-				+ "<td>" + cl.getId() + "</td><td>" + cl.getNom() + "</td><td>" + cl.getPrenom() + "</td><td>"
-				+ cl.getCivilite() + "</td><td>" + cl.getTel() + "</td><td>" + cl.getDn() + "</td><td>" + cl.getMail()
-				+ "</td><td>" + dossier.getStatutdossier() + "</td><td>" + cl.getNumcb() + "</td>"
-				;
-
-		// TODO
-		String participantString = "Participants <br/><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th>";
-		String voyageString = "Voyage <br/>";
-
-		for (Participant p : listeP) {
-			participantString = participantString + "<tr><td>" + p.getId() + "</td><td>" + p.getCivilite() + "</td><td>"
-					+ p.getNom() + "</td><td>" + p.getPrenom() + "</td><td>" + p.getTel()
-					+ "</td><td><fmt:formatDate pattern='dd/MM/yyyy' value=" + p.getDn() + " /></td><td>" + p.getMail()
-					+ "</td></tr>";
-		}
-
+		
 		try {
 
 			// Create a default MimeMessage object.
@@ -192,24 +293,24 @@ public class MailSendPdf {
 
 			// Set To: header field of the header.
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(cl.getMail()));
-			
-			String enTete = " de la réservation pour le voyage " + voyage.getDestination() + " du "
-					+ voyage.getDateD() + " au " + voyage.getDateR();
-			
+
+			String enTete = " de la réservation pour le voyage " + voyage.getDestination() + " du " + voyage.getDateD()
+					+ " au " + voyage.getDateR();
+
 			String voyageEtat = "";
 
 			if (dossier.getStatutdossier() == "En attente") {
 				voyageEtat = "Votre demande de voyage va être examinée par nos services. </br>"
 						+ "Lorsqu'elle sera validée, nous débuterons la négociation avec l'agence concernée par le voyage, et vous tiendrons informés du résultat dans les prochaines 24h. <br/><br/>"
 						+ "A bientôt sur notre site pour un prochain beau voyage !";
-				
+
 				enTete = "Etude " + enTete;
 			}
 			if (dossier.getStatutdossier() == "Annulé") {
 				voyageEtat = "Votre demande de voyage a été examinée par nos services. Malheureusement, celle-ci a été rejetée par notre service comptabilité."
 						+ "Votre compte n'a pas été débité au cours de cette opération.<br/><br/>"
 						+ "A bientôt sur notre site pour un prochain beau voyage !";
-				
+
 				enTete = "Annulation " + enTete;
 			}
 
@@ -218,40 +319,40 @@ public class MailSendPdf {
 						+ "<br/>Nous sommes à présent en cours de négociations avec l'agence concernée par le voyage, et vous tiendrons informés de l'évolution du dossier dans un délai de 48h. <br/>"
 						+ "Votre compte ne sera pas débité au cours de cette opération. <br/><br/>"
 						+ "A bientôt sur notre site pour un prochain beau voyage !";
-				
+
 				enTete = "Evolution " + enTete;
 			}
 
 			if (dossier.getStatutdossier() == "Accepté") {
 				voyageEtat = "Votre réservation a bien pu être effectuée auprès de l'agence, nous vous confirmons donc votre réservation. <br/>"
-						+ "Votre compte sera débité prochaine de la somme de " + voyage.getTarif() + "€. <br/>" 
+						+ "Votre compte sera débité prochaine de la somme de " + voyage.getTarif() + "€. <br/>"
 						+ "Veuillez trouver ci-joint votre billet d'avion.<br/><br/>"
 						+ "BoVoyage vous souhaite un agréable séjour, et espère vous retrouver bientôt pour un prochain voyage !";
-				
+
 				enTete = "Validation " + enTete;
-				
+
 				// creates body part for the attachment
 				MimeBodyPart attachPart = new MimeBodyPart();
-				
+
 				// ajouter la PJ
-				String attachFile = getFile(voyage);
+				String attachFile = getFile(dossier);
 
 				DataSource source = new FileDataSource(attachFile);
 				attachPart.setDataHandler(new DataHandler(source));
 				attachPart.setFileName(new File(attachFile).getName());
-				
+
 				multipart.addBodyPart(attachPart);
-				
+
 			}
 
 			if (dossier.getStatutdossier() == "Refusé") {
 				voyageEtat = "Votre demande de réservation n'a pas pu aboutir, car le nombre de places restantes pour ce trajet est insuffisant<br/>"
 						+ "Votre compte n'a pas été débité en conséquence. <br/><br/>"
 						+ "Nous espérons vous retrouver bientôt pour planifier un prochain voyage !";
-				
+
 				enTete = "Annulation " + enTete;
 			}
-			
+
 			// Set Subject: header field
 			message.setSubject(enTete);
 
