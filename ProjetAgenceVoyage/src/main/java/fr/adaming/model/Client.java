@@ -53,6 +53,9 @@ public class Client implements Serializable {
 
 	@OneToMany(mappedBy="clientDos")
 	private List<Dossier> dossier;
+	
+//	@OneToMany(mappedBy="client")
+//	private List<Role> listeRole;
 
 	public Client() {
 		super();

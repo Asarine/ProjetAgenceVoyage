@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% response.sendRedirect("conseiller/pCTRL/liste"); %>
+<% response.sendRedirect("client/pCTRL/listeP_Cl"); %>
 </body>
 </html>

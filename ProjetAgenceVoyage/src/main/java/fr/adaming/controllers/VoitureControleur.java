@@ -17,7 +17,7 @@ import fr.adaming.model.Voiture;
 import fr.adaming.service.IVoitureService;
 
 @Controller
-@RequestMapping("/voiture")
+@RequestMapping("/conseiller/voiture")
 @Scope("session")
 public class VoitureControleur {
 

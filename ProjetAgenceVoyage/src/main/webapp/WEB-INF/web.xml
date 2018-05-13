@@ -11,7 +11,7 @@
   <!-- Déclaration des context de application context et spring security : -->
   <context-param>
   <param-name>contextConfigLocation</param-name>
-  <param-value>/WEB-INF/applicationContext.xml</param-value>
+  <param-value>/WEB-INF/applicationContext.xml /WEB-INF/security-context.xml</param-value>
   </context-param>
   
   <!-- Déclaration de la servlet de spring mvc -->
@@ -33,9 +33,24 @@
   </servlet-mapping>
   
   
+  
+  <!-- Etape 4 : déclaration du filtre de spring Security -->
+  <filter>
+<filter-name>springSecurityFilterChain</filter-name>                      
+<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>       
+ 
+</filter>
+
+
+<!-- Etape 5 : le mapping du filtre de spring Security -->
+   <filter-mapping>
+<filter-name>springSecurityFilterChain</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping> 
+  
   <!-- Spécification  de la page d'accueil -->
   <welcome-file-list>
-  <welcome-file>indexW.jsp</welcome-file>
+  <welcome-file>indexCedric.jsp</welcome-file>
   </welcome-file-list>
   
   

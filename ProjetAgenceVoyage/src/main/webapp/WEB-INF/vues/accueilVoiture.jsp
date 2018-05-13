@@ -7,15 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="<c:url value='/resources/js/jquery-3.3.1.js'/>"></script>
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.css'/>" />
-
-<script src="<c:url value='/resources/js/bootstrap.js'/>"
-	type="text/javascript"></script>
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
 <title>Accueil Voiture</title>
 </head>
 <body>
+<%@ include file="/resources/template/headerVoitureConseiller.html"%>
+<br/>
+
 <h1 style="color: crimson; text-align: center">Liste des
 		voitures</h1>
 	<div align="center">
@@ -32,7 +33,7 @@
 					<td>${v.id}</td>
 					<td>${v.categorie}</td>
 					<td>${v.loueur}</td>
-					<td><a href="<c:url value='/voiture/deleteVoit/${v.id}'/>">Supprimer</a> || <a href="<c:url value='/voiture/updateVoit?pId=${v.id}'/>">Modifier</a></td>
+					<td><a href="<c:url value='/conseiller/voiture/deleteVoit/${v.id}'/>">Supprimer</a> || <a href="<c:url value='/conseiller/voiture/updateVoit?pId=${v.id}'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 			
@@ -40,7 +41,7 @@
 					<td> </td>
 					<td> </td>
 					<td> </td>
-					<td><a href="<c:url value='/voiture/formAjoutVoit'/>">Ajouter une nouvelle voiture</a></td>
+					<td><a href="<c:url value='/conseiller/voiture/formAjoutVoit'/>">Ajouter une nouvelle voiture</a></td>
 				</tr>
 		</table>
 	</div>

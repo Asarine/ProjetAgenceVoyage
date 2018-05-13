@@ -25,41 +25,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 import fr.adaming.model.Participant;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IParticipantService;
 
 @Controller
-@RequestMapping("/conseiller/pCTRL")
+@RequestMapping("/client/pCTRL")
 // @Scope("session")
-public class ParticipantController {
+public class ParticipantControllerClient {
 	@Autowired
 	IParticipantService parService;
-	// @Autowired
-	// IConseillerService conseilService;
+	@Autowired
+	IClientService clientService;
 
-	Conseiller c;
+	Client cl;
 
 	public void setParService(IParticipantService parService) {
 		this.parService = parService;
 	}
 
-	public void setC(Conseiller c) {
-		this.c = c;
+	public void setCl(Client cl) {
+		this.cl = cl;
 	}
 
 	@PostConstruct
 	public void init() {
 		// TODO
 		// Récuperer le context spring security
-		// Authentication auth =
-		// SecurityContextHolder.getContext().getAuthentication();
+		// Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		//
 		// String mail = auth.getName();
 
-		// Recuperer le infos du formateur
-		// c = conseilService.getAdminByMail(mail);
-		c = new Conseiller("nom", "prenom", "a@a", "a", true);
+		// Recuperer le infos du client
+		// c = conseilService.getClientByMail(mail);
+		cl = new Client(1, "TOTO", "Titi", "M.", "0606060606", new Date(), "a@a", "0000000000000", "a");
 
 	}
 
@@ -76,126 +77,85 @@ public class ParticipantController {
 
 	// Méthodes
 	// ----------- Fonctionnalité d'affichage de la liste
-	@RequestMapping(value = "/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/listeP_Cl", method = RequestMethod.GET)
 	public ModelAndView afficheListeCompl() {
-		// appel de la méthode service pour récupérer la liste
-		List<Participant> liste = parService.getAllParticipant();
+		long id = cl.getId();
 
-		return new ModelAndView("listeParticipant", "listeParticipant", liste);
+		// appel de la méthode service pour récupérer la liste
+		List<Participant> liste = parService.getParticipantByClient(id);
+		System.out.println(liste);
+
+		return new ModelAndView("listeParticipant_Cl", "listeParticipant_Cl", liste);
 	}
 
 	// ----------- Fonctionnalité d'ajout
 	// 1 - méthode pour afficher le formulaire d'ajout
-	@RequestMapping(value = "/afficheAjout", method = RequestMethod.GET)
+	@RequestMapping(value = "/afficheAjoutP_Cl", method = RequestMethod.GET)
 	public ModelAndView afficheFormAjout() {
-		return new ModelAndView("ajoutP", "pAjout", new Participant());
+		return new ModelAndView("ajoutP_Cl", "pAjout_Cl", new Participant());
 	}
 
 	// 2 - Méthode pour soumettre le formulaire d'ajout
-	@RequestMapping(value = "/soumettreAjout", method = RequestMethod.POST)
-	public String soumettreFormAjout(ModelMap modele, @ModelAttribute("pAjout") Participant p, RedirectAttributes rda) {
-		
+	@RequestMapping(value = "/soumettreAjoutP_Cl", method = RequestMethod.POST)
+	public String soumettreFormAjout(ModelMap modele, @ModelAttribute("pAjout_Cl") Participant p, RedirectAttributes rda) {
+		p.setClient(cl);
+
 		// Appel de la méthode ajout de service
 		int verif = parService.addParticipant(p);
 
 		if (verif != 0) {
-			return "redirect:liste";
+			return "redirect:listeP_Cl";
 
 		} else {
 			rda.addFlashAttribute("msg", "L'ajout n'a pas pu être effectué");
-			return "redirec:afficheAjout";
+			return "redirect:afficheAjout_Cl";
 		}
 
 	}
 
 	// ----------- Fonctionnalité de modification
 	// 1 - méthode pour afficher le formulaire de modif
-	@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
+	@RequestMapping(value = "/afficheModifP_Cl", method = RequestMethod.GET)
 	public ModelAndView afficheFormModif() {
-		return new ModelAndView("modifP", "pModif", new Participant());
+		return new ModelAndView("modifP_Cl", "pModif", new Participant());
 	}
 
+
 	// 2 - Méthode pour soumettre le formulaire de modif
-	@RequestMapping(value = "/soumettreModif", method = RequestMethod.POST)
+	@RequestMapping(value = "/soumettreModifP_Cl", method = RequestMethod.POST)
 	public String soumettreFormModif(@ModelAttribute("pModif") Participant p, RedirectAttributes rda) {
 		// Appel de la méthode modif de service
+		p.setClient(cl);
+		
 		int verif = parService.updateParticipant(p);
 
 		if (verif != 0) {
-			return "redirect:liste";
+			return "redirect:listeP_Cl";
 
 		} else {
 			rda.addFlashAttribute("msg", "La modification n'a pas pu être effectuée");
-			return "redirec:afficheModif";
+			return "redirect:afficheModifP_Cl";
 		}
 
-	}
-
-	// ----------- Fonctionnalité de suppression
-	// 1 - méthode pour afficher le formulaire de suppression
-	@RequestMapping(value = "/afficheDelete", method = RequestMethod.GET)
-	public ModelAndView afficheSupprim() {
-		return new ModelAndView("supprimP", "pDelete", new Participant() {
-		});
-	}
-
-	// 2 - Méthode pour soumettre le formulaire de suppression
-	@RequestMapping(value = "/soumettreDelete", method = RequestMethod.POST)
-	public String soumettreFormSupprim(@ModelAttribute("pDelete") Participant p, RedirectAttributes rda) {
-		int verif = parService.deleteParticipant(p.getId());
-
-		if (verif != 0) {
-			rda.addFlashAttribute("msg", "Suppression effectuée !");
-			return "redirect:liste";
-		} else {
-			rda.addFlashAttribute("msg", "Supression impossible");
-			return "redirect:afficheDelete";
-		}
-	}
-
-	// ----------- Fonctionnalité de recherche
-	// 1 - méthode pour afficher le formulaire de recherche
-	@RequestMapping(value = "/afficheSearch", method = RequestMethod.GET)
-	public String afficheRecherche(Model modele) {
-		modele.addAttribute("pSearch", new Participant());
-
-		return "rechercherP";
-	}
-
-	// 2 - Méthode pour soumettre le formulaire de recherche
-	@RequestMapping(value = "/soumettreSearch", method = RequestMethod.POST)
-	public String soumettreRecherche(ModelMap modele, @ModelAttribute("pSearch") Participant p,
-			RedirectAttributes rda) {
-		Participant pOut = parService.searchParticipant(p.getId());
-
-		if (pOut != null) {
-			modele.addAttribute("pOut", pOut);
-
-			return "rechercherP";
-		} else {
-			rda.addFlashAttribute("msg", "Pas de participant associé à l'ID " + p.getId());
-			return "redirect:afficheSearch";
-			// inserer un message d'erreur
-		}
 	}
 
 	// Fonctionnalité supprimer avec lien
-	@RequestMapping(value = "/deleteLink/{pId}")
+	@RequestMapping(value = "/deleteLink_Cl/{pId}")
 	public String supprimLien(Model modele, @PathVariable("pId") Long id) {
 		// Appel de la méthode service pour supprimer l'étudiant
 		parService.deleteParticipant(id);
 
 		// Récupérer la nouvelle liste
-		List<Participant> liste = parService.getAllParticipant();
+		List<Participant> liste = parService.getParticipantByClient(id);
 
 		// Mettre à jour la liste dans la page d'accueil
-		modele.addAttribute("listeParticipant", liste);
+		modele.addAttribute("listeParticipant_Cl", liste);
 
-		return "listeParticipant";
+		return "listeParticipant_Cl";
 	}
 
 	// Fonctionnalité modifier avec lien
-	@RequestMapping(value = "/updateLink")
+	@RequestMapping(value = "/updateLink_Cl")
 	public String editLien(Model modele, @RequestParam("pId") Long id) {
 		// Appel de la méthode service pour obtenir le participant
 		Participant pOut = parService.searchParticipant(id);
@@ -203,7 +163,7 @@ public class ParticipantController {
 		// Stocker le participant
 		modele.addAttribute("pModif", pOut);
 
-		return "modifP";
+		return "modifP_Cl";
 	}
 
 }
