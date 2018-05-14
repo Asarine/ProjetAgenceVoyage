@@ -15,9 +15,21 @@
 <script src="<c:url value='/resources/js/bootstrap.js'/>"
 	type="text/javascript"></script>
 <title>Prix à payer</title>
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/monStyleCedric.css'/>" />
 </head>
-<body>
-
+<body
+	style="background-image: url('../resources/image/SkyView.jpg'); background-repeat: round; height: 3000px">
+	<div style="background-color: #87CEFA">
+		<br /> <br /> <br />
+		<h1 style="text-align: center; font-size: 80px; color: slateBlue">
+			<b>BoVoyage</b>
+		</h1>
+		<h2 style="text-align: center">
+			<b>Globe-Trottez</b>
+		</h2>
+		<br /> <br /> <br />
+<%@ include file="/resources/template/headerClient.html"%>
 	<h1>Validation de la commande : </h1>
 	<br/>
 	<hr/>
@@ -46,5 +58,6 @@
 			</div>
 		</div>
 	</form:form>
+	</div>
 </body>
 </html>

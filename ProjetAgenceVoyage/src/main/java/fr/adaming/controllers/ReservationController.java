@@ -185,13 +185,6 @@ public class ReservationController {
 		
 	}
 	
-	@RequestMapping(value="/afficheDossier",method=RequestMethod.GET)
-	public ModelAndView afficherDossiers(@RequestParam("pId") long id){
-		ModelAndView model=new ModelAndView("accueilDos2");
-		model.addObject("liste",dosServ.getDossiersByIdClient(id));
-		return model;
-	}
-	
 	@RequestMapping(value="/delete/{pId}",method=RequestMethod.GET)
 	public ModelAndView supprimerVoyage(@PathVariable("pId") long id){
 		ModelAndView model=new ModelAndView("redirect:afficheAccueil");

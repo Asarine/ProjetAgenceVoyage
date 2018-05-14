@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
 </head>
 <body style="background-image: url('../resources/image/SkyView.jpg'); background-repeat:round; height: 3000px">
-
+<div style="background-color:#87CEFA">
 <br/>
 <br/>
 <br/>
@@ -26,7 +26,7 @@
 <br/>
 <br/>
 <br/>
-
+<%@ include file="/resources/template/headerClient.html"%>
 	<div class="panel panel-default">
 		<div class="panel-heading ">
 			<h3 class="panel-title" align="center">
@@ -71,6 +71,6 @@
 		</div>
 
 	</form:form>
-
+</div>
 </body>
 </html>

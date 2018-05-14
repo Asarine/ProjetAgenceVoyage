@@ -148,7 +148,7 @@ public class Formule implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Formule [id_f=" + id_f + ", avion=" + avion + ", hotel=" + hotel + ", voiture=" + voiture + "]";
+		return "Avion : " + avion + ", Hotel : " + hotel + ", Voiture : " + voitureLouer.getCategorie();
 	}
 		
 	
