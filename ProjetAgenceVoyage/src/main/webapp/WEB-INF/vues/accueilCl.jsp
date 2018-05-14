@@ -55,7 +55,7 @@
 		<td>${cl.numcb}</td>
 		<td>${cl.conseiller.id_co}</td>
 		
-		<td><a href="${pageContext.request.contextPath}/clCTRL/deleteLink/${cl.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/clCTRL/updateLink?pId=${cl.id}">Modifier</a></td>
+		<td><a href="${pageContext.request.contextPath}/conseiller/clCTRL/deleteLink/${cl.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/conseiller/clCTRL/updateLink?pId=${cl.id}">Modifier</a></td>
 	</tr>
 	
 	</c:forEach>

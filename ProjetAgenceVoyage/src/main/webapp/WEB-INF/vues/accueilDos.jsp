@@ -48,7 +48,7 @@
 		<td>${dos.assurance}</td>
 		<td>${dos.prixTotal}</td>
 		
-		<td><a href="${pageContext.request.contextPath}/dosCTRL/deleteLink/${dos.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/dosCTRL/updateLink?pId=${dos.id}">Modifier</a></td>
+		<td><a href="${pageContext.request.contextPath}/conseiller/dosCTRL/deleteLink/${dos.id}">Supprimer</a> |<a href="${pageContext.request.contextPath}/conseiller/dosCTRL/updateLink?pId=${dos.id}">Modifier</a></td>
 	</tr>
 	
 	</c:forEach>

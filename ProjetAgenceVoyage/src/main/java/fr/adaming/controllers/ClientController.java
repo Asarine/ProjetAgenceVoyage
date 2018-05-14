@@ -14,8 +14,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Client;
@@ -142,5 +144,43 @@ public class ClientController {
 		
 	}
 	
+	//---------------------------------------------------------Supprimer client lien------------------------------------------------------------------------
 
+	@RequestMapping(value="/deleteLink/{pId}",method=RequestMethod.GET)
+	public String supprimLien(ModelMap modele, @PathVariable("pId") int id){
+		
+		Client clIn = new Client();
+		clIn.setId(id);
+		
+		// appel de la methode supprimer$
+		clServ.deleteClient(id);
+		
+		// récupération de la nouvelle liste
+		List<Client> liste = clServ.getAllClient();
+		
+		// Mettre à jour la liste dans la page d'accueil
+		modele.addAttribute("listeClient", liste);
+		
+		return "accueilCl";
+		
+	}
+	
+	//---------------------------------------------------------Modifier client lien------------------------------------------------------------------------
+	
+	@RequestMapping(value="/updateLink",method=RequestMethod.GET)
+	public String modifierLien(ModelMap modele, @RequestParam("pId") int id){
+		
+		Client clIn = new Client();
+		clIn.setId(id);
+		
+		// appel de la methode modifier
+		Client clOut = clServ.getClientById(id);
+		
+		// Mettre à jour la liste dans la page d'accueil
+		modele.addAttribute("clModif", clOut);
+		
+		return "modifCl";
+		
+	}
+	
 }
