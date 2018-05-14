@@ -13,14 +13,25 @@
 
 <script src="<c:url value='/resources/js/bootstrap.js'/>"
 	type="text/javascript"></script>
+	<div style="background-color:#87CEFA">
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
 <title>Accueil</title>
 </head>
-<body>
+<body style="background-image: url('../resources/image/SkyView.jpg'); background-repeat:round; height: 3000px">
+
+<br/>
+<br/>
+<br/>
+<h1 style="text-align:center;font-size: 80px; color:slateBlue"><b>BoVoyage</b></h1>
+<h2 style="text-align:center"><b>Globe-Trottez</b></h2>
+<br/>
+<br/>
+<br/>
 
 	<div class="panel panel-default">
 		<c:forEach var="v" items="${listeVoyages}">
 
-			<div class="panel-heading ">
+			<div class="panel-heading">
 				<h3 class="panel-title" align="center">
 					<b>Référence du voyage</b> : ${v.id_v}
 				</h3>
@@ -58,5 +69,6 @@
 	</div>
 	
 <h2>${msg}</h2>
+</div>
 </body>
 </html>
