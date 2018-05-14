@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body style="background-image: url('../resources/image/SkyView.jpg'); background-repeat:round; height: 3000px">
 
 <%@ include file="/resources/template/headerClient.html"%>
 
