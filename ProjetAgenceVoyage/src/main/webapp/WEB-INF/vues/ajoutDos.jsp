@@ -9,11 +9,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap.css'/>"/>
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
 
 <title>Ajout Dossier</title>
 </head>
 <body>
+
+<div style="background-color:#FFEBCD">
 
 <nav class="navbar navbar-inverse">
  <ul class="nav nav-pills">
@@ -49,6 +55,16 @@
   </div>
   
 </form:form>
+
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 
 </body>
 </html>
