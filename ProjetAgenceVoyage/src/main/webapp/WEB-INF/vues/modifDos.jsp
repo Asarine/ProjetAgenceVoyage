@@ -9,11 +9,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="<c:url value='/resources/CSS/bootstrap.css'/>"/>
+<script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
+<!-- spécifier le chemin du fichier bootstrap.css -->
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 
 <title>Modifier Dossier</title>
 </head>
 <body>
+
+<div style="background-color:#FFEBCD">
+
 
 <nav class="navbar navbar-inverse">
  <ul class="nav nav-pills">
@@ -34,6 +42,21 @@
       <form:input cssclass="form-control" placeholder="id" path="id"/>
     </div>
   </div>
+  
+    <div class="form-group">
+    <form:label class="col-sm-2 control-label" path="assurance">Assurance</form:label>
+    <div class="col-sm-10">
+      <form:input type="boolean" cssclass="form-control" placeholder="Assurance" path="assurance"/>
+    </div>
+    </div>
+    
+    <div class="form-group">
+    <form:label class="col-sm-2 control-label" path="prixTotal">Prix total</form:label>
+    <div class="col-sm-10">
+      <form:input type="boolean" cssclass="form-control" placeholder="PrixTotal" path="prixTotal"/>
+    </div>
+    </div>
+    
     <div class="form-group">
     <form:label class="col-sm-2 control-label" path="statutdossier">Statut dossier</form:label>
     <div class="col-sm-10">
@@ -47,6 +70,15 @@
     </div>
   </div>
 </form:form>
+
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 
 </body>
 </html>

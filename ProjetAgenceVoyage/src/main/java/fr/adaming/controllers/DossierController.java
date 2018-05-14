@@ -10,9 +10,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Dossier;
+import fr.adaming.model.Voyage;
 import fr.adaming.service.IDossierService;
 
 @Controller
@@ -122,5 +124,25 @@ public class DossierController {
 		return "resultatDos";
 		
 	}
+	
+	
+	
+	
+	//Lien modifier un dossier :
+	@RequestMapping(value="/updateLinkDossier", method=RequestMethod.GET)
+	public String modifLien(ModelMap modele, @RequestParam("pIdD") int id)
+	{
+		Dossier dIn= new Dossier();
+		dIn.setId(id);
+		
+		//appel de la meth service pour ecup le voyage :
+		Dossier dOut=dosService.getDossierById(dIn.getId());
+		
+		//mettre a jour la liste :
+		modele.addAttribute("dosModif", dOut);
+		
+		return "modifDos";
+	}
+	
 
 }
