@@ -15,5 +15,7 @@ public interface IClientService {
 	public int deleteClient(long id);
 	
 	public Client getClientById(long id);
+	
+	public Client isExistClient(String mail);
 
 }

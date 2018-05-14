@@ -90,6 +90,22 @@ public class ClientDaoImpl implements IClientDao {
 		
 		return (Client) query.getSingleResult();
 	}
+
+	@Override
+	public Client isExistClient(String mail) {
+		
+		// Création de la requête
+		String req="SELECT cl FROM Client as cl WHERE cl.mail=:pId";
+		
+		// Création du query
+		Query query=em.createQuery(req);
+		
+		// Passage des params
+		query.setParameter("pId", mail);
+
+		
+		return (Client) query.getSingleResult();
+	}
 	
 	
 

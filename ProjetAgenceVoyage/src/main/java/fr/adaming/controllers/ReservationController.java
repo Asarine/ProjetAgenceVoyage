@@ -28,6 +28,7 @@ import fr.adaming.model.Participant;
 import fr.adaming.model.Voyage;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ICommentaireService;
+import fr.adaming.service.IConseillerService;
 import fr.adaming.service.IDossierService;
 import fr.adaming.service.IParticipantService;
 import fr.adaming.service.IServiceBancaireService;
@@ -67,6 +68,9 @@ public class ReservationController {
 	@Autowired
 	private IClientService clServ;
 	
+	@Autowired
+	private IConseillerService coServ;
+	
 	@RequestMapping(value="/afficheAccueil",method=RequestMethod.GET)
 	public ModelAndView afficherTousVoyages(){
 		ModelAndView model=new ModelAndView("accueilClient");
@@ -89,7 +93,10 @@ public class ReservationController {
 	public ModelAndView afficherParti(@ModelAttribute("dossier") Dossier dos){
 		ModelAndView model=new ModelAndView("ajoutParticipant");
 		dos.setStatutdossier("En attente");
-		dos.setClientDos(clServ.getClientById(dos.getClientDos().getId()));
+		Client clTemp = clServ.getClientById(dos.getClientDos().getId());
+		clTemp.setConseiller(coServ.getConseillerById(clTemp.getConseiller().getId_co()));
+		dos.setClientDos(clTemp);
+		
 		Dossier dosOut=dosServ.addDossier(dos);
 		model.addObject("voyageSelect", voyServ.getVoyageById(dos.getVoyageDos()));
 		model.addObject("dossier",dosOut);
@@ -153,6 +160,7 @@ public class ReservationController {
 		voyServ.updateVoyage(voOut);
 		clOut.setNumcb(numCB);
 		clServ.updateClient(clOut);
+				
 		int verif=banqueServ.retirerTarif(clOut.getNumcb(), dosOut.getPrixTotal());
 		if (verif!=0){
 			dosOut.setStatutdossier("En cours");
