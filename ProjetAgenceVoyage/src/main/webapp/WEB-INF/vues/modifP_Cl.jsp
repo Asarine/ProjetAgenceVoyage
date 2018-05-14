@@ -24,14 +24,16 @@
 	<h1 style="color: red; text-align: center">Modifier des
 		participants</h1>
 
-	<form:form cssClass="form-horizontal" action="soumettreModif"
+	<form:form cssClass="form-horizontal" action="soumettreModifP_Cl"
 		method="POST" modelAttribute="pModif">
 		
 		<div class="form-group">
 			<form:label path="civilite" cssClass="col-sm-2 control-label">Civilité</form:label>
 			<div class="col-sm-4">
-				<form:input path="civilite" cssClass="form-control"
-					placeholder="M/Mme" />
+				<form:select class="form-control" path="civilite" name="pCivilite">
+					<option value="M.">M.</option>
+					<option value="Mme">Mme</option>
+				</form:select>
 			</div>
 			<form:errors path="civilite" cssStyle="color:red" />
 		</div>
