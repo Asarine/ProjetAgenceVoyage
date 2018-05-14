@@ -68,7 +68,7 @@ public class DossierServiceImpl implements IDossierService {
 		if (dOut.getId() != 0) {
 			System.out.println("envoyer mail ?");
 			sendMail2Client(dos);
-			sendMail2Conseiller(dos);
+//			sendMail2Conseiller(dos);
 		}
 
 		return dOut;
@@ -274,7 +274,7 @@ public class DossierServiceImpl implements IDossierService {
 		// TODO
 		String participantString = "";
 
-		if (dossier.getParticipantsDos().size() > 0) {
+		if (dossier.getParticipantsDos() != null){
 			participantString = "Participants <br/><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th>";
 
 			for (Participant p : listeP) {
