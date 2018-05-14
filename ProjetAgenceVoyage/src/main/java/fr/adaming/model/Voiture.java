@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "voitures")
@@ -27,8 +29,16 @@ public class Voiture implements Serializable {
 	@OneToOne(mappedBy="voitureLouer")
 	private Formule formule;
 	
-	@OneToMany(mappedBy="voiture")
+	@OneToMany(cascade= CascadeType.DETACH)
 	private List<Image> imageVo;
+
+	
+	@Transient
+	private List<String> photos;
+	
+	
+	
+
 
 	public Formule getFormule() {
 		return formule;
@@ -89,7 +99,14 @@ public class Voiture implements Serializable {
 	public void setImageVo(List<Image> imageVo) {
 		this.imageVo = imageVo;
 	}
+	
+	public List<String> getPhotos() {
+		return photos;
+	}
 
+	public void setPhotos(List<String> photos) {
+		this.photos = photos;
+	}
 
 	@Override
 	public String toString() {

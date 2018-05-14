@@ -23,28 +23,6 @@ public class Image implements Serializable {
 	@Lob
 	private byte[] contents;
 	
-	@Transient
-	private String photo;
-	
-	
-	//transformation uml en java 
-	
-	  //avec voiture :
-	 @ManyToOne
-	 @JoinColumn(name="vo_id", referencedColumnName="id_vo")
-	 private Voiture voiture;
-	
-	 //avec voyage :
-	 @ManyToOne
-	 @JoinColumn(name="v_id", referencedColumnName="id_v")
-	 private Voyage voyage;
-	
-	//avec destination :
-	 @ManyToOne
-	 @JoinColumn(name="d_id",referencedColumnName="id_d")
-	 private Destination destination;
-	
-	
 	//constructeurs :
 	public Image() {
 		super();
@@ -75,39 +53,6 @@ public class Image implements Serializable {
 		return id_im;
 	}
 
-	public Voiture getVoiture() {
-		return voiture;
-	}
-
-
-
-	public void setVoiture(Voiture voiture) {
-		this.voiture = voiture;
-	}
-
-
-
-	public Voyage getVoyage() {
-		return voyage;
-	}
-
-
-
-	public void setVoyage(Voyage voyage) {
-		this.voyage = voyage;
-	}
-
-
-
-	public Destination getDestination() {
-		return destination;
-	}
-
-
-
-	public void setDestination(Destination destination) {
-		this.destination = destination;
-	}
 
 
 

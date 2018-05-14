@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Destination;
 import fr.adaming.model.Voyage;
 import fr.adaming.service.IVoyageService;
+import fr.adaming.controllers.ImageController.*;
 
 @Controller
 @RequestMapping("/conseiller/vCTRL")
@@ -84,7 +86,7 @@ public class VoyageController {
 	
 	   //methode pour soumettre le formulaire de recherche:
 	@RequestMapping(value="/soumettreRechVoyage", method=RequestMethod.POST)
-	public String soumettreFormRechercheVoyage(ModelMap modele,  @ModelAttribute("vRech") Voyage v , RedirectAttributes rda)
+	public String soumettreFormRechercheVoyage(ModelMap modele,  @ModelAttribute("vRech") Voyage v , RedirectAttributes rda,@RequestParam("upFiles")MultipartFile[] files)
 	{
 		
 		//appel de la methode :
@@ -159,7 +161,7 @@ public class VoyageController {
 	@RequestMapping(value="/afficheAjoutVoyage", method=RequestMethod.GET)
 	public ModelAndView afficheFormAjoutVoyage()
 	{
-		
+	
 		return new ModelAndView("ajoutVoyage","vAjout",new Voyage());
 	}
 	

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "voyages")
@@ -50,8 +52,12 @@ public class Voyage implements Serializable {
 	@JoinColumn(name = "f_id", referencedColumnName = "id_f")
 	private Formule formule;
 
-	@OneToMany(mappedBy = "voyage")
-	private List<Image> listeImages;
+	// association avec image :
+	@OneToMany(cascade = CascadeType.DETACH)
+	private List<Image> listeImage;
+
+	@Transient
+	private List<String> photos;
 
 	/*
 	 * @OneToMany(mappedBy="voyage") private List<Client> client;
@@ -59,7 +65,23 @@ public class Voyage implements Serializable {
 
 	// @ManyToMany(mappedBy="voyagesDos")
 	// private List<Dossier> listeDossier;
-	
+
+	public List<Image> getListeImage() {
+		return listeImage;
+	}
+
+	public void setListeImage(List<Image> listeImage) {
+		this.listeImage = listeImage;
+	}
+
+	public List<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<String> photos) {
+		this.photos = photos;
+	}
+
 	@OneToMany(mappedBy = "voyageDos")
 	private List<Dossier> listeDossier;
 
@@ -116,14 +138,6 @@ public class Voyage implements Serializable {
 
 	public void setFormule(Formule formule) {
 		this.formule = formule;
-	}
-
-	public List<Image> getListeImages() {
-		return listeImages;
-	}
-
-	public void setListeImages(List<Image> listeImages) {
-		this.listeImages = listeImages;
 	}
 
 	/*

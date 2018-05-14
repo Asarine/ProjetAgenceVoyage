@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "destinations")
@@ -26,8 +27,11 @@ public class Destination implements Serializable {
 	private String pays;
 
 	
+	@Transient
+	private List<String> photos;
+	
 	//association avec image :
-	@OneToMany(mappedBy = "destination", cascade= CascadeType.DETACH)
+	@OneToMany(cascade= CascadeType.DETACH)
 	private List<Image> listeImage;
 	
 	
@@ -93,6 +97,17 @@ public class Destination implements Serializable {
 
 	public void setListeImage(List<Image> listeImage) {
 		this.listeImage = listeImage;
+	}
+	
+	
+	
+
+	public List<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<String> photos) {
+		this.photos = photos;
 	}
 
 	@Override
