@@ -49,7 +49,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="<c:url value='/voiture/formAjoutVoit'/>">Ajouter
+				<td><a href="<c:url value='conseiller/voiture/formAjoutVoit'/>">Ajouter
 						une nouvelle voiture</a></td>
 			</tr>
 		</table>
