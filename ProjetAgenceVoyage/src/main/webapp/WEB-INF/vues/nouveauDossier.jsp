@@ -14,8 +14,19 @@
 <script src="<c:url value='/resources/js/bootstrap.js'/>"
 	type="text/javascript"></script>
 <title>Reservation- Etape 1</title>
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
 </head>
-<body>
+<body style="background-image: url('../resources/image/SkyView.jpg'); background-repeat:round; height: 3000px">
+
+<br/>
+<br/>
+<br/>
+<h1 style="text-align:center;font-size: 80px; color:slateBlue"><b>BoVoyage</b></h1>
+<h2 style="text-align:center"><b>Globe-Trottez</b></h2>
+<br/>
+<br/>
+<br/>
+
 	<div class="panel panel-default">
 		<div class="panel-heading ">
 			<h3 class="panel-title" align="center">

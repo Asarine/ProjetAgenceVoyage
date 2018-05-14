@@ -89,6 +89,7 @@ public class ReservationController {
 	public ModelAndView afficherParti(@ModelAttribute("dossier") Dossier dos){
 		ModelAndView model=new ModelAndView("ajoutParticipant");
 		dos.setStatutdossier("En attente");
+		dos.setClientDos(clServ.getClientById(dos.getClientDos().getId()));
 		Dossier dosOut=dosServ.addDossier(dos);
 		model.addObject("voyageSelect", voyServ.getVoyageById(dos.getVoyageDos()));
 		model.addObject("dossier",dosOut);
