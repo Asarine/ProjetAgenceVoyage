@@ -24,7 +24,7 @@ import fr.adaming.model.Client;
 import fr.adaming.service.IClientService;
 
 @Controller
-@RequestMapping("/client/clCTRL")
+@RequestMapping("/conseiller/clCTRL")
 @Scope("session")
 public class ClientController {
 	
@@ -164,6 +164,8 @@ public class ClientController {
 		return "accueilCl";
 		
 	}
+	
+	//---------------------------------------------------------Modifier client lien------------------------------------------------------------------------
 	
 	@RequestMapping(value="/updateLink",method=RequestMethod.GET)
 	public String modifierLien(ModelMap modele, @RequestParam("pId") int id){
