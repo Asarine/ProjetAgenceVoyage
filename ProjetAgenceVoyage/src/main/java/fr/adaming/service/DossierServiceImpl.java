@@ -266,16 +266,16 @@ public class DossierServiceImpl implements IDossierService {
 			}
 		});
 
-		String clientString = "Client <br/><th>ID</th><th>Nom</th><th>Prenom</th><th>Civilité</th><th>Tel</th><th>Date de naissance</th><th>Mail</th><th>Statut dossier</th>"
-				+ "<td>" + cl.getId() + "</td><td>" + cl.getNom() + "</td><td>" + cl.getPrenom() + "</td><td>"
+		String clientString = "Client <div align='center'><table class='table table-bordered'><div align='center'><table class='table table-bordered'><tr><th>ID</th><th>Nom</th><th>Prenom</th><th>Civilité</th><th>Tel</th><th>Date de naissance</th><th>Mail</th><th>Statut dossier</th></tr>"
+				+ "<tr><td>" + cl.getId() + "</td><td>" + cl.getNom() + "</td><td>" + cl.getPrenom() + "</td><td>"
 				+ cl.getCivilite() + "</td><td>" + cl.getTel() + "</td><td>" + cl.getDn() + "</td><td>" + cl.getMail()
-				+ "</td><td>" + dossier.getStatutdossier() + "</td>";
+				+ "</td><td>" + dossier.getStatutdossier() + "</td></tr></table></div>";
 
 		// TODO
 		String participantString = "";
 
 		if (dossier.getParticipantsDos() != null){
-			participantString = "Participants <br/><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th>";
+			participantString = "Participants <div align='center'><table class='table table-bordered'><tr><th>ID</th><th>Civilité</th><th>Nom</th><th>Prenom</th><th>Numéro de <br/> téléphone</th><th>Date de<br/> naissance</th><th>Mail</th></tr>";
 
 			for (Participant p : listeP) {
 				participantString = participantString + "<tr><td>" + p.getId() + "</td><td>" + p.getCivilite()
@@ -283,19 +283,20 @@ public class DossierServiceImpl implements IDossierService {
 						+ "</td><td><fmt:formatDate pattern='dd/MM/yyyy' value=" + p.getDn() + " /></td><td>"
 						+ p.getMail() + "</td></tr>";
 			}
+			participantString = participantString + "</table></div>";
 		}
 		
 //		System.out.println(voyage.getDestination().getPays());
 		
 		String voyageString = "";
 
-//		String voyageString = "Voyage <br/><tr><th>ID</th><th>Date depart</th><th>Date retour</th><th>Nombre de place</th><th>Tarif</th><th>Disponibilité</th><th>Assurance</th><th>Pays de la destination</th><th>ID de l'hébergement</th><th>ID de la formule</th></tr>"
+//		String voyageString = "Voyage <div align='center'><table class='table table-bordered'><br/><tr><th>ID</th><th>Date depart</th><th>Date retour</th><th>Nombre de place</th><th>Tarif</th><th>Disponibilité</th><th>Assurance</th><th>Pays de la destination</th><th>ID de l'hébergement</th><th>ID de la formule</th></tr>"
 //				+ "<tr><td>" + voyage.getId_v() + "</td>" + "<td> <fmt:formatDate pattern='dd/MM/yyyy' value='"
 //				+ voyage.getDateD() + "'/></td><td> <fmt:formatDate pattern='dd/MM/yyyy' value='" + voyage.getDateR()
 //				+ "'/></td><td>" + voyage.getNbPlaces() + "</td><td>" + voyage.getTarif() + "</td><td>"
 //				+ voyage.getDisponibilite() + "</td>" + "<td>" + dossier.getStatutdossier() + "</td>" 
 //				+ "<td>" + voyage.getDestination().getPays() + "</td><td>"
-//				+ voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f() + "</td></tr>";
+//				+ voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f() + "</td></tr></table></div>";
 
 		try {
 			// Create a default MimeMessage object.
