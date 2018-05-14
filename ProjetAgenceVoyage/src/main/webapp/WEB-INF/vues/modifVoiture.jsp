@@ -11,13 +11,23 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 <title>Modifier Voiture</title>
 </head>
 <body>
+
+
+<div style="background-color:#FFEBCD">
+
 <%@ include file="/resources/template/headerVoitureConseiller.html"%>
 <br/>
 
-	<h1 style="color: crimson; text-align: center">Modifier une voiture</h1>
+
+	>
+
+
+	<h1 style=" text-align: center">Modifier une voiture</h1>
 	<br/>
 	<form:form cssClass="form-horizontal" method="POST"
 		action="modifVoiture" modelAttribute="voitureModifiee">
@@ -46,5 +56,16 @@
 			<input type="submit" class="btn btn-default" value="Modifier">
 		</div>
 	</form:form>
+	
+		<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+	
 </body>
 </html>

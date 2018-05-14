@@ -10,17 +10,20 @@
 <script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
-<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />>
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 <title>Ajouter Voiture</title>
 </head>
 <body>
+<div style="background-color:#FFEBCD">
 
 <%@ include file="/resources/template/headerVoitureConseiller.html"%>
 <br/>
 
 
 
-	<h1 style="color: crimson; text-align: center">Ajouter une nouvelle voiture</h1>
+	<h1 style=" text-align: center">Ajouter une nouvelle voiture</h1>
 	<br/>
 	<form:form cssClass="form-horizontal" method="POST"
 		action="ajoutVoiture" modelAttribute="voitureAjoutee">
@@ -42,5 +45,15 @@
 			<input type="submit" class="btn btn-default" value="Ajouter">
 		</div>
 	</form:form>
+	
+		<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 </body>
 </html>

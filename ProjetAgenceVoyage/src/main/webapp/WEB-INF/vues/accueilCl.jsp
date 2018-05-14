@@ -12,16 +12,19 @@
 <script type="text/javascript" src="../../resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>"/>
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 <title>Accueil Client</title>
 </head>
-<body>
+<body style="background-image: url('../../resources/image/Londres.jpg'); background-repeat:round; height: 3000px">
 
+<div style="background-color:#FFEBCD">
 
 
 <%@ include file="/resources/template/headerClientConseiller.html"%>
 
 
-<h1 style="color:green;text-align: center">Liste des clients</h1>
+<h1 style="text-align: center">Liste des clients</h1>
 
 <div align="center">
 <table class="table table-bordered">
@@ -59,6 +62,15 @@
 
 </table>
 
+</div>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 </div>
 
 </body>

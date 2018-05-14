@@ -14,9 +14,12 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
-</head>
-<body>
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
 
+</head>
+<body  style="background-image: url('../../resources/image/MurailleChine.jpg'); background-repeat:round; height: 8000px">
+
+<div style="background-color:#FFEBCD">
 
 
 <br/>
@@ -31,7 +34,7 @@
 <br/>
 <hr />
 
-	<h1 style="color: blue; text-align: center">Liste des voyages disponibles</h1>
+	<h1 style=" text-align: center">Liste des voyages disponibles</h1>
 
 
 <div align="center">
@@ -70,6 +73,17 @@
 			</c:forEach>
 		</table>
 	</div>
+	
+	
+			<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 
 </body>
 </html>

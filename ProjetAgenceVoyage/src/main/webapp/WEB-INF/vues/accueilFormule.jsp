@@ -14,8 +14,12 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 </head>
-<body>
+<body style="background-image: url('../../resources/image/Canyon.jpg'); background-repeat:round; height: 3000px">
+
+<div style="background-color:#FFEBCD">
 
 
 <%@ include file="/resources/template/headerFormuleConseiller.html"%>
@@ -27,7 +31,7 @@
 <br/>
 <hr/>
 
-<h1 style="color: blue; text-align: center">Liste des voyages formules</h1>
+<h1 style=" text-align: center">Liste des voyages formules</h1>
 
 
 <div align="center">
@@ -60,6 +64,16 @@
 			</c:forEach>
 		</table>
 	</div>
+	
+	<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 
 </body>
 </html>

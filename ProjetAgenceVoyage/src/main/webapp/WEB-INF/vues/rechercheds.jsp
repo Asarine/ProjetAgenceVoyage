@@ -12,14 +12,18 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 </head>
-<body>
+<body style="background-image: url('../../resources/image/ChuteNiagara.JPG'); background-repeat:round; height: 3000px">
+	
+		<div style="background-color:#FFEBCD">
 	
 	
 	<%@ include file="/resources/template/headerDestinationConseiller.html"%>
 	
 
-	<h1 style="color: red; text-align: center">
+	<h1 style=" text-align: center">
 		<i>Destination recherchée</i>
 	</h1>
 	<form:form class="form-horizontal" method="post" action="soumRech" >
@@ -53,6 +57,18 @@
 		</tr>
 	
 	</table>
+	
+	
+	
+	<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 </body>
 </html>
 
