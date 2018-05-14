@@ -15,6 +15,8 @@ public interface IDossierService {
 	public int deleteDossier(long id);
 	
 	public Dossier getDossierById(long id);
+	
+	public List<Dossier> getDossiersByIdClient(long idCl);
 
 
 }

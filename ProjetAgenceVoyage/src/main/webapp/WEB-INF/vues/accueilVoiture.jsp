@@ -11,13 +11,18 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 <title>Accueil Voiture</title>
 </head>
 <body>
+
+<div style="background-color:#FFEBCD">
+
 <%@ include file="/resources/template/headerVoitureConseiller.html"%>
 <br/>
 
-<h1 style="color: crimson; text-align: center">Liste des
+<h1 style=" text-align: center">Liste des
 		voitures</h1>
 	<div align="center">
 		<table class="table table-bordered">
@@ -57,5 +62,16 @@
 			<input type="submit" class="btn btn-default" value="Trouver !">
 		</div>
 	</form:form>
+	
+	
+	<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 </body>
 </html>

@@ -14,10 +14,13 @@
 <script type="text/javascript" src="../../resources/js/bootstrap.js"></script>
 <!-- spécifier le chemin du fichier bootstrap.css -->
 <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/resources/css/monStyleCedric.css'/>"/>
+
 
 </head>
-<body>
+<body style="background-image: url('../../resources/image/ileParadisiaque.jpg'); background-repeat:round; height: 3000px">
 
+<div style="background-color:#FFEBCD">
 
 
 
@@ -49,6 +52,12 @@
 		<br/>
 		<br/>
 	
+	<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
 
 
 </body>

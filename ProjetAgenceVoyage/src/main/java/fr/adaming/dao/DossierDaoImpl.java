@@ -86,4 +86,18 @@ public class DossierDaoImpl implements IDossierDao {
 		return (Dossier) query.getSingleResult();
 	}
 
+	@Override
+	public List<Dossier> getDossiersByIdClient(long idCl) {
+		// Création de la requête
+				String req = "SELECT ds FROM Dossier ds WHERE ds.clientDos.id=:pId";
+				
+				// Création du query
+				Query query = em.createQuery(req);
+				
+				// Passage des params
+				query.setParameter("pId", idCl);
+				
+				return query.getResultList();
+	}
+
 }
