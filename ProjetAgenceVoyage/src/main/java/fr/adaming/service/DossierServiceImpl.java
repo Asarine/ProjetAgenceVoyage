@@ -68,7 +68,7 @@ public class DossierServiceImpl implements IDossierService {
 		if (dOut.getId() != 0) {
 			System.out.println("envoyer mail ?");
 			sendMail2Client(dos);
-//			sendMail2Conseiller(dos);
+			sendMail2Conseiller(dos);
 		}
 
 		return dOut;
@@ -245,13 +245,13 @@ public class DossierServiceImpl implements IDossierService {
 		Voyage voyage = dossier.getVoyageDos();
 
 		Conseiller c = cl.getConseiller();
+		System.out.println("Conseiller" + c);
 
 		// TODO Auto-generated method stub
 		final String username = "clear.skies928@gmail.com";
 		final String password = /*
 								 * Ne soyez pas trop curieux !
-								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-								 */ "BubblyClouds8?";
+								 * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */ "BubblyClouds8?";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -284,14 +284,18 @@ public class DossierServiceImpl implements IDossierService {
 						+ p.getMail() + "</td></tr>";
 			}
 		}
+		
+//		System.out.println(voyage.getDestination().getPays());
+		
+		String voyageString = "";
 
-		String voyageString = "Voyage <br/><tr><th>ID</th><th>Date depart</th><th>Date retour</th><th>Nombre de place</th><th>Tarif</th><th>Disponibilité</th><th>Assurance</th><th>Id de la destination</th><th>Pays de la destination</th><th>ID de l'hébergement</th><th>ID de la formule</th></tr>"
-				+ "<tr><td>" + voyage.getId_v() + "</td>" + "<td> <fmt:formatDate pattern='dd/MM/yyyy' value='"
-				+ voyage.getDateD() + "'/></td><td> <fmt:formatDate pattern='dd/MM/yyyy' value='" + voyage.getDateR()
-				+ "'/></td><td>" + voyage.getNbPlaces() + "</td><td>" + voyage.getTarif() + "</td><td>"
-				+ voyage.getDisponibilite() + "</td>" + "<td>" + dossier.getStatutdossier() + "</td>" + "<td>"
-				+ voyage.getDestination().getId() + "</td><td>" + voyage.getDestination().getPays() + "</td><td>"
-				+ voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f() + "</td></tr>";
+//		String voyageString = "Voyage <br/><tr><th>ID</th><th>Date depart</th><th>Date retour</th><th>Nombre de place</th><th>Tarif</th><th>Disponibilité</th><th>Assurance</th><th>Pays de la destination</th><th>ID de l'hébergement</th><th>ID de la formule</th></tr>"
+//				+ "<tr><td>" + voyage.getId_v() + "</td>" + "<td> <fmt:formatDate pattern='dd/MM/yyyy' value='"
+//				+ voyage.getDateD() + "'/></td><td> <fmt:formatDate pattern='dd/MM/yyyy' value='" + voyage.getDateR()
+//				+ "'/></td><td>" + voyage.getNbPlaces() + "</td><td>" + voyage.getTarif() + "</td><td>"
+//				+ voyage.getDisponibilite() + "</td>" + "<td>" + dossier.getStatutdossier() + "</td>" 
+//				+ "<td>" + voyage.getDestination().getPays() + "</td><td>"
+//				+ voyage.getHebergement().getId_h() + "</td><td>" + voyage.getFormule().getId_f() + "</td></tr>";
 
 		try {
 			// Create a default MimeMessage object.
